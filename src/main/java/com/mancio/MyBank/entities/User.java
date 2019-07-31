@@ -18,8 +18,8 @@ public class User {
 
     private LocalDate birth;
 
-    @OneToMany(mappedBy = "id")
-    private BkAccount bkaccount;
+   /* @OneToMany(mappedBy = "id")
+    private BkAccount bkaccount;*/
 
     public long getId() {
         return id;

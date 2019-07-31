@@ -3,15 +3,13 @@ package com.mancio.MyBank.entities;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
 public class BkAccount {
+
 
     private BigDecimal number;
     private String currency;
