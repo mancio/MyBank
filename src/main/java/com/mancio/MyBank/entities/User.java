@@ -1,9 +1,6 @@
 package com.mancio.MyBank.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -13,13 +10,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String Name;
+    private String name;
 
     private String mail;
 
     private String phone;
 
     private LocalDate birth;
+
+    @OneToMany(mappedBy = "id")
+    private BkAccount bkaccount;
 
     public long getId() {
         return id;
@@ -30,11 +30,11 @@ public class User {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getMail() {
