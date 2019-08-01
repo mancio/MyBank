@@ -7,12 +7,16 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Table(name = "bank_account")
 @Entity
 public class BkAccount {
 
-
+    @Id
+    @Column(name = "account_number", updatable = false)
     private BigDecimal number;
+    @Column(name = "currency")
     private String currency;
+    @Column(name = "opening_date")
     private LocalDate opdate;
 
     @ManyToOne(fetch = FetchType.LAZY)

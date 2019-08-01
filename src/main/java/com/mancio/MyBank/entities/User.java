@@ -3,22 +3,24 @@ package com.mancio.MyBank.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Table(name = "account_owner")
 @Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
-
+    @Column(name = "name")
     private String name;
-
+    @Column(name = "mail")
     private String mail;
-
+    @Column(name = "phone_number")
     private String phone;
-
+    @Column(name = "date_of_birth")
     private LocalDate birth;
 
-   /* @OneToMany(mappedBy = "id")
+    /*@OneToMany(mappedBy = "id")
     private BkAccount bkaccount;*/
 
     public long getId() {
