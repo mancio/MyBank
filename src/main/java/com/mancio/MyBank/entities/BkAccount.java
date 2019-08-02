@@ -47,4 +47,12 @@ public class BkAccount {
     public void setOpdate(LocalDate opdate) {
         this.opdate = opdate;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
