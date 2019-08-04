@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BkRep extends JpaRepository<BkAccount,Long> {
-    Page<BkAccount> findByCustomerCustomerId(Long customerId, Pageable pageable);
+    Page<BkAccount> findByCustomerId(Long customerId, Pageable pageable);
 }

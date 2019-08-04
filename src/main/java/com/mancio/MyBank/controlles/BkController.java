@@ -34,7 +34,7 @@ public class BkController {
 
     @GetMapping(value = "/customers/{customerId}/accounts")
     public Page<BkAccount> all (@PathVariable Long customerId, Pageable pageable){
-        return bkrep.findByCustomerCustomerId(customerId, pageable);
+        return bkrep.findByCustomerId(customerId, pageable);
     }
 
     @DeleteMapping(value = "/customers/{customerId}/accounts/{accountId}")
