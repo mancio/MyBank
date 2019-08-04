@@ -24,16 +24,16 @@ public class BkController {
     @PostMapping(value = "/customers/{customerId}/accounts")
     @ResponseStatus(code = HttpStatus.CREATED)
     public BkAccount save(@PathVariable Long customerId, @RequestBody BkAccount bk) {
-        return bkrep.findById(customerId).map(user -> {
-            userep.setUser(user);
-            return userep.save(user);
+        return userep.findById(customerId).map(user -> {
+            bk.setUser(user);
+            return bkrep.save(bk);
 
         }).orElseThrow(() -> new ResourceNotFoundException("Customer [customerId="+customerId+"] can't be found"));
 
     }
 
     @GetMapping(value = "/customers/{customerId}/accounts")
-    public Page<BkAccount> all (@PathVariable Integer customerId, Pageable pageable){
+    public Page<BkAccount> all (@PathVariable Long customerId, Pageable pageable){
         return bkrep.findByCustomerCustomerId(customerId, pageable);
     }
 
@@ -54,13 +54,13 @@ public class BkController {
     @PutMapping(value = "/customers/{customerId}/accounts/{accountId}")
     public ResponseEntity<BkAccount> updateAccount(@PathVariable Long customerId,@PathVariable Long accountId,@RequestBody BkAccount newAccount){
 
-        Customer customer = userep.findById(customerId).orElseThrow(() -> new ResourceNotFoundException("Customer [customerId="+customerId+"] can't be found"));
+        User user = userep.findById(customerId).orElseThrow(() -> new ResourceNotFoundException("Customer [customerId="+customerId+"] can't be found"));
 
         return bkrep.findById(accountId).map(account ->{
-            newAccount.setCustomer(customer);
+            newAccount.setUser(user);
             bkrep.save(newAccount);
             return ResponseEntity.ok(newAccount);
         }).orElseThrow(() -> new ResourceNotFoundException("Account [accountId="+accountId+"] can't be found"));
 
 
-    }
+    }}
