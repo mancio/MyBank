@@ -3,7 +3,7 @@ package com.mancio.MyBank.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Table(name = "account_owner")
+@Table(name = "User")
 @Entity
 public class User {
 
@@ -13,12 +13,19 @@ public class User {
     private long id;
     @Column(name = "name")
     private String name;
+    @Column(name = "surname")
+    private String surname;
+    @Column(name = "username")
+    private String user;
+    @Column(name = "password")
+    private String password;
+    @Column(name = "birthday")
+    private LocalDate birthday;
     @Column(name = "mail")
     private String mail;
     @Column(name = "phone_number")
     private String phone;
-    @Column(name = "date_of_birth")
-    private LocalDate birth;
+
 
     /*@OneToMany(mappedBy = "id")
     private BkAccount bkaccount;*/
