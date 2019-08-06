@@ -3,7 +3,7 @@
 
 #### Database model
 
- <img src="https://github.com/mancio/MyBank/blob/master/diagrams/database.PNG" alt="Bank Database model" height="600" >
+ <img src="https://github.com/mancio/MyBank/blob/master/diagrams/database.PNG" alt="Bank Database model" width="600" >
 
 #### Some links
 - https://medium.com/@codespeaks/build-restful-services-with-spring-boot-2-x-in-few-steps-95c895a7abf5
