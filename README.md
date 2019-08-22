@@ -21,6 +21,6 @@ Is on a free host at [https://remotemysql.com](https://remotemysql.com)
 
 ### Database design app
 
-[https://dbdiagram.io] (https://dbdiagram.io)
+* [https://dbdiagram.io](https://dbdiagram.io)
 
 
