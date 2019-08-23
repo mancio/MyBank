@@ -1,6 +1,11 @@
 # MyBank 
 ## The rest API money transfer app
 
+#### Description
+
+This is a webapp with an online user panel interface to manage bank accounts and transfer money.
+
+
 #### Database model
 
  <img src="https://github.com/mancio/MyBank/blob/master/diagrams/database.PNG" alt="Bank Database model" width="100%" >
