@@ -3,7 +3,13 @@
 
 #### Description
 
-This is a webapp with an online user panel interface to manage bank accounts and transfer money.
+This is a webapp with an online user panel interface to manage bank accounts and transfer money from an account to
+another.
+
+#### Design
+
+* Font-end: AngularJs
+* Back-end: Java + Spring
 
 
 #### Database model
