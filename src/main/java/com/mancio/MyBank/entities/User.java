@@ -28,6 +28,6 @@ public class User {
     @Column(name = "Address_ID")
     private String address;
     @Column(name = "Branch_ID")
-    private String branch_ID;
+    private String branch_id;
 
 }
