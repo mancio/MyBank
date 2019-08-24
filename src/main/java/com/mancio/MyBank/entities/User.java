@@ -9,64 +9,25 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "User_ID")
     private long id;
-    @Column(name = "name")
+    @Column(name = "Nickname")
+    private String nickname;
+    @Column(name = "Password")
+    private String pass;
+    @Column(name = "Name")
     private String name;
-    @Column(name = "surname")
+    @Column(name = "Middle_Name")
+    private String m_name;
+    @Column(name = "Last_Name")
     private String surname;
-    @Column(name = "username")
-    private String user;
-    @Column(name = "password")
-    private String password;
-    @Column(name = "birthday")
-    private LocalDate birthday;
-    @Column(name = "mail")
-    private String mail;
-    @Column(name = "phone_number")
+    @Column(name = "Phone")
     private String phone;
+    @Column(name = "Mail")
+    private String mail;
+    @Column(name = "Address_ID")
+    private String address;
+    @Column(name = "Branch_ID")
+    private String branch_ID;
 
-
-    /*@OneToMany(mappedBy = "id")
-    private BkAccount bkaccount;*/
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public LocalDate getBirth() {
-        return birth;
-    }
-
-    public void setBirth(LocalDate birth) {
-        this.birth = birth;
-    }
 }
