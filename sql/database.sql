@@ -1,14 +1,14 @@
 CREATE TABLE `Bank`
 (
-  `Bank_ID` long PRIMARY KEY,
+  `Bank_ID` int PRIMARY KEY,
   `Bank_Details` varchar(255)
 );
 
 CREATE TABLE `Branches`
 (
-  `Branch_ID` long PRIMARY KEY,
-  `Address_ID` long,
-  `Bank_ID` long,
+  `Branch_ID` int PRIMARY KEY,
+  `Address_ID` int,
+  `Bank_ID` int,
   `Branch_Type_Code` varchar(10),
   `Branch_Details` varchar(255)
 );
@@ -21,7 +21,7 @@ CREATE TABLE `Branch_Services`
 
 CREATE TABLE `Addresses`
 (
-  `Address_ID` long PRIMARY KEY,
+  `Address_ID` int PRIMARY KEY,
   `Street` varchar(255),
   `City` varchar(255),
   `Zip` varchar(255),
@@ -32,7 +32,7 @@ CREATE TABLE `Addresses`
 
 CREATE TABLE `User`
 (
-  `User_ID` long PRIMARY KEY,
+  `User_ID` int PRIMARY KEY,
   `Nickname` varchar(10) UNIQUE,
   `Password` varchar(50),
   `Access_Status_Code` long,
@@ -42,20 +42,20 @@ CREATE TABLE `User`
   `Phone_Prefix` int(5),
   `Phone` int(20) UNIQUE,
   `Mail` varchar(20) UNIQUE,
-  `Address_ID` long,
-  `Branch_ID` long
+  `Address_ID` int,
+  `Branch_ID` int
 );
 
 CREATE TABLE `Access_Details`
 (
-  `Access_Status_Code` long PRIMARY KEY,
+  `Access_Status_Code` int PRIMARY KEY,
   `Access_Value` tinyint(1) COMMENT '1 can log in and 0 cannot',
   `Access_Details` varchar(255) COMMENT 'why you are banned'
 );
 
 CREATE TABLE `Roles`
 (
-  `User_ID` long PRIMARY KEY,
+  `User_ID` int PRIMARY KEY,
   `Autorities` varchar(255)
 );
 
@@ -63,7 +63,7 @@ CREATE TABLE `Bank_Account`
 (
   `Account_Number` int(50) PRIMARY KEY,
   `Country_Code` varchar(5),
-  `User_ID` long,
+  `User_ID` int,
   `Balance` decimal(50)
 );
 
@@ -75,14 +75,14 @@ CREATE TABLE `Account_Country_Code`
 
 CREATE TABLE `Transaction`
 (
-  `Transaction_ID` long PRIMARY KEY,
+  `Transaction_ID` int PRIMARY KEY,
   `Sender_Account_Code` varchar(5),
   `Sender_Account_Number` int(50),
   `Date` Date,
   `Receiver_Name` varchar(255),
   `Receiver_Account_Code` varchar(5),
   `Receiver_Account_Number` varchar(50),
-  `Amount` decimal COMMENT 'do not use float',
+  `Amount` decimal(50) COMMENT 'do not use float',
   `Description` varchar(255),
   `Status` varchar(255)
 );
