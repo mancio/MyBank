@@ -14,7 +14,7 @@ another.
 
 #### Database model
 
- <img src="https://github.com/mancio/MyBank/blob/master/diagrams/database.PNG" alt="Bank Database model" width="100%" >
+ <img src="https://github.com/mancio/MyBank/blob/master/diagrams/database_workbench.png" alt="Bank Database model" width="100%" >
  
   by [https://dbdiagram.io](https://dbdiagram.io) 
   

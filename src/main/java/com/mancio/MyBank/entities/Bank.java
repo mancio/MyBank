@@ -38,4 +38,8 @@ public class Bank {
     public void setBranches(Set<Branches> branches) {
         this.branches = branches;
     }
+
+    
+
+
 }
