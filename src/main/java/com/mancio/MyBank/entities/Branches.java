@@ -15,7 +15,7 @@ public class Branches {
     @Column(name = "Branch_Type_Code")
     private long branch_code;
     @Column(name = "Branch_Details")
-    private long branch_details;
+    private String branch_details;
 
     @ManyToOne
     @JoinColumn(name = "Bank_ID", nullable = false)
@@ -53,11 +53,11 @@ public class Branches {
         this.branch_code = branch_code;
     }
 
-    public long getBranch_details() {
+    public String getBranch_details() {
         return branch_details;
     }
 
-    public void setBranch_details(long branch_details) {
+    public void setBranch_details(String branch_details) {
         this.branch_details = branch_details;
     }
 
