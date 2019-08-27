@@ -3,8 +3,9 @@ package com.mancio.MyBank.entities;
 import javax.persistence.*;
 import java.util.Set;
 
-@Table(name = "Addresses")
+
 @Entity
+@Table(name = "Addresses")
 public class Addresses {
 
     @Id

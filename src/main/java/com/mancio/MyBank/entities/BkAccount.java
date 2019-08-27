@@ -7,8 +7,9 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Table(name = "bank_account")
+
 @Entity
+@Table(name = "bank_account")
 public class BkAccount {
 
     @Id

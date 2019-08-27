@@ -2,8 +2,9 @@ package com.mancio.MyBank.entities;
 
 import javax.persistence.*;
 
-@Table(name = "Branches")
+
 @Entity
+@Table(name = "Branches")
 public class Branches {
     @Id
     @Column(name = "Branch_ID")
@@ -17,13 +18,17 @@ public class Branches {
     @Column(name = "Branch_Details")
     private String branch_details;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Bank_ID", nullable = false)
     private Bank bank;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Address_ID", nullable = false)
     private Addresses addresses;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Branch_Type_Code", nullable = false)
+    private Branch_Services brserv;
 
     public long getBranch_id() {
         return branch_id;
@@ -80,5 +85,13 @@ public class Branches {
 
     public void setAddresses(Addresses addresses) {
         this.addresses = addresses;
+    }
+
+    public Branch_Services getBrserv() {
+        return brserv;
+    }
+
+    public void setBrserv(Branch_Services brserv) {
+        this.brserv = brserv;
     }
 }

@@ -35,7 +35,7 @@ CREATE TABLE `User`
   `User_ID` int PRIMARY KEY,
   `Nickname` varchar(10) UNIQUE,
   `Password` varchar(50),
-  `Access_Status_Code` long,
+  `Access_Status_Code` int,
   `Name` varchar(20),
   `Middle_Name` varchar(20),
   `Last_Name` varchar(20),
@@ -55,7 +55,7 @@ CREATE TABLE `Access_Details`
 
 CREATE TABLE `Roles`
 (
-  `User_ID` int PRIMARY KEY,
+  `Nickname` varchar(10) PRIMARY KEY,
   `Autorities` varchar(255)
 );
 
@@ -89,7 +89,7 @@ CREATE TABLE `Transaction`
 
 ALTER TABLE `Bank_Account` ADD FOREIGN KEY (`User_ID`) REFERENCES `User` (`User_ID`);
 
-ALTER TABLE `Roles` ADD FOREIGN KEY (`User_ID`) REFERENCES `User` (`User_ID`);
+ALTER TABLE `Roles` ADD FOREIGN KEY (`Nickname`) REFERENCES `User` (`Nickname`);
 
 ALTER TABLE `Transaction` ADD FOREIGN KEY (`Sender_Account_Number`) REFERENCES `Bank_Account` (`Account_Number`);
 

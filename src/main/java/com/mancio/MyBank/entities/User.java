@@ -3,8 +3,9 @@ package com.mancio.MyBank.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Table(name = "User")
+
 @Entity
+@Table(name = "User")
 public class User {
 
     @Id

@@ -3,8 +3,9 @@ package com.mancio.MyBank.entities;
 import javax.persistence.*;
 import java.util.Set;
 
-@Table(name = "Bank")
+
 @Entity
+@Table(name = "Bank")
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,6 +13,7 @@ public class Bank {
     private long bank_id;
     @Column(name = "Bank_Details")
     private String bk_det;
+
     @OneToMany(mappedBy = "Bank")
     private Set<Branches> branches;
 
