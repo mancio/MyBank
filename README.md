@@ -46,6 +46,6 @@ Is on a free host at [https://remotemysql.com](https://remotemysql.com)
 * [https://github.com/umangborad123/Online-Banking-with-Java-Spring-Boot-Angular-2](https://github.com/umangborad123/Online-Banking-with-Java-Spring-Boot-Angular-2)
 * [https://www.quora.com/Does-banks-store-money-in-SQL](https://www.quora.com/Does-banks-store-money-in-SQL)
 * [https://thoughts-on-java.org/best-practices-many-one-one-many-associations-mappings](https://thoughts-on-java.org/best-practices-many-one-one-many-associations-mappings/)
-
+* [https://vladmihalcea.com/eager-fetching-is-a-code-smell](https://vladmihalcea.com/eager-fetching-is-a-code-smell)
 
 
