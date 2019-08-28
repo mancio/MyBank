@@ -1,6 +1,6 @@
 package com.mancio.MyBank.controlles;
 
-import com.mancio.MyBank.entities.BkAccount;
+import com.mancio.MyBank.entities.Bank_Account;
 import com.mancio.MyBank.entities.User;
 import com.mancio.MyBank.exception.ResourceNotFoundException;
 import com.mancio.MyBank.repositories.BkRep;
@@ -23,7 +23,7 @@ public class BkController {
 
     @PostMapping(value = "/customers/{customerId}/accounts")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public BkAccount save(@PathVariable Long customerId, @RequestBody BkAccount bk) {
+    public Bank_Account save(@PathVariable Long customerId, @RequestBody Bank_Account bk) {
         return userep.findById(customerId).map(user -> {
             bk.setUser(user);
             return bkrep.save(bk);
@@ -33,7 +33,7 @@ public class BkController {
     }
 
     @GetMapping(value = "/customers/{customerId}/accounts")
-    public Page<BkAccount> all (@PathVariable Long customerId, Pageable pageable){
+    public Page<Bank_Account> all (@PathVariable Long customerId, Pageable pageable){
         return bkrep.findByCustomerId(customerId, pageable);
     }
 
@@ -52,7 +52,7 @@ public class BkController {
     }
 
     @PutMapping(value = "/customers/{customerId}/accounts/{accountId}")
-    public ResponseEntity<BkAccount> updateAccount(@PathVariable Long customerId,@PathVariable Long accountId,@RequestBody BkAccount newAccount){
+    public ResponseEntity<Bank_Account> updateAccount(@PathVariable Long customerId, @PathVariable Long accountId, @RequestBody Bank_Account newAccount){
 
         User user = userep.findById(customerId).orElseThrow(() -> new ResourceNotFoundException("Customer [customerId="+customerId+"] can't be found"));
 

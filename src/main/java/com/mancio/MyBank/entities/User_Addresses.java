@@ -3,10 +3,7 @@ package com.mancio.MyBank.entities;
 import javax.persistence.*;
 import java.util.Set;
 
-
-@Entity
-@Table(name = "User_Addresses")
-public class Addresses {
+public class User_Addresses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,14 +23,13 @@ public class Addresses {
     private String state;
 
     @OneToMany(mappedBy = "User_Addresses")
-    private Set<Branches> branches;
+    private Set<User> user;
 
-
-    public long getAddress_id() {
+    public long getU_ad_id() {
         return u_ad_id;
     }
 
-    public void setAddress_id(long address_id) {
+    public void setU_ad_id(long u_ad_id) {
         this.u_ad_id = u_ad_id;
     }
 
@@ -85,11 +81,11 @@ public class Addresses {
         this.state = state;
     }
 
-    public Set<Branches> getBranches() {
-        return branches;
+    public Set<User> getUser() {
+        return user;
     }
 
-    public void setBranches(Set<Branches> branches) {
-        this.branches = branches;
+    public void setUser(Set<User> user) {
+        this.user = user;
     }
 }
