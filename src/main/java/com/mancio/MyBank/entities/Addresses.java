@@ -28,6 +28,7 @@ public class Addresses {
     @OneToMany(mappedBy = "Addresses")
     private Set<Branches> branches;
 
+
     public long getAddress_id() {
         return address_id;
     }

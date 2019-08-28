@@ -1,5 +1,7 @@
 package com.mancio.MyBank.entities;
 
+
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -14,7 +16,8 @@ public class Branch_Services {
     private String slist;
 
     @OneToMany(mappedBy = "Branch_Services")
-    private Set<Branch_Services> brserv;
+    private Set<Branches> brserv;
+
 
     public String getBr_tp_code() {
         return br_tp_code;
@@ -32,11 +35,11 @@ public class Branch_Services {
         this.slist = slist;
     }
 
-    public Set<Branch_Services> getBrserv() {
+    public Set<Branches> getBrserv() {
         return brserv;
     }
 
-    public void setBrserv(Set<Branch_Services> brserv) {
+    public void setBrserv(Set<Branches> brserv) {
         this.brserv = brserv;
     }
 }

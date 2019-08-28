@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name = "bank_account")
+@Table(name = "Bank_Account")
 public class BkAccount {
 
     @Id
@@ -21,8 +21,7 @@ public class BkAccount {
     private LocalDate opdate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "User_ID", nullable = false)
     private User user;
 
     public BigDecimal getNumber() {

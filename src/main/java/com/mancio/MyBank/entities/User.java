@@ -2,6 +2,7 @@ package com.mancio.MyBank.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 
 @Entity
@@ -30,5 +31,11 @@ public class User {
     private String address;
     @Column(name = "Branch_ID")
     private String branch_id;
+
+    @OneToMany(mappedBy = "User")
+    private Set<Roles> roles;
+
+    @OneToMany(mappedBy = "User")
+    private Set<BkAccount> bkaccount;
 
 }
