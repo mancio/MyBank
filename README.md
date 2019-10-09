@@ -47,5 +47,5 @@ Is on a free host at [https://remotemysql.com](https://remotemysql.com)
 * [https://www.quora.com/Does-banks-store-money-in-SQL](https://www.quora.com/Does-banks-store-money-in-SQL)
 * [https://thoughts-on-java.org/best-practices-many-one-one-many-associations-mappings](https://thoughts-on-java.org/best-practices-many-one-one-many-associations-mappings/)
 * [https://vladmihalcea.com/eager-fetching-is-a-code-smell](https://vladmihalcea.com/eager-fetching-is-a-code-smell)
-
+* [https://github.com/dmitrykhramov/Online-Bank-Simulator](https://github.com/dmitrykhramov/Online-Bank-Simulator)
 

@@ -9,8 +9,8 @@ public class Branches {
     @Id
     @Column(name = "Branch_ID")
     private long branch_id;
-    @Column(name = "Address_ID")
-    private long address_id;
+    @Column(name = "B_Address_ID")
+    private long b_address_id;
     @Column(name = "Bank_ID")
     private long bank_id;
     @Column(name = "Branch_Type_Code")
@@ -38,12 +38,12 @@ public class Branches {
         this.branch_id = branch_id;
     }
 
-    public long getAddress_id() {
-        return address_id;
+    public long getB_address_id() {
+        return b_address_id;
     }
 
-    public void setAddress_id(long address_id) {
-        this.address_id = address_id;
+    public void setB_address_id(long b_address_id) {
+        this.b_address_id = b_address_id;
     }
 
     public long getBank_id() {
