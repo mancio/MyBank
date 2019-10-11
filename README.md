@@ -9,7 +9,7 @@ another.
 #### Design
 
 * Font-end: AngularJs
-* Back-end: Java + Spring
+* Back-end: Java + Spring + oauth2 (security Log in)
 
 #### RestAPI
 
