@@ -1,4 +1,4 @@
-package com.mancio.MyBank.OAuth2Conf;
+package com.mancio.MyBank.OAuth2conf;
 
 
 import org.springframework.context.annotation.Configuration;
