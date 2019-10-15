@@ -13,11 +13,21 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.annotation.Resource;
+import java.security.SecureRandom;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private static final String SALT = "ib$iobio#$@#$";
+
+    // link that do not require authorization
+    private static final String[] PUB_LINK = {
+        "/",
+        "/signup",
+        "/help"
+    };
 
     @Resource(name = "userService")
     private UserDetailsService userDetailsService;
@@ -40,12 +50,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .anonymous().disable()
                 .authorizeRequests()
-                .antMatchers("/api-docs/**").permitAll();
+                .antMatchers(PUB_LINK).permitAll();
     }
 
     @Bean
     public BCryptPasswordEncoder encoder(){
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder(10, rangen());
+    }
+
+    private SecureRandom rangen(){
+        SecureRandom random = new SecureRandom();
+        random.nextBytes(SALT.getBytes());
+        return random;
     }
 
 
