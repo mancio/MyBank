@@ -36,9 +36,6 @@ public class User {
     private int branch_id;
 
     @OneToMany(mappedBy = "User")
-    private Set<Roles> roles;
-
-    @OneToMany(mappedBy = "User")
     private Set<Bank_Account> bkaccount;
 
     public long getId() {
@@ -135,14 +132,6 @@ public class User {
 
     public void setBranch_id(int branch_id) {
         this.branch_id = branch_id;
-    }
-
-    public Set<Roles> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Roles> roles) {
-        this.roles = roles;
     }
 
     public Set<Bank_Account> getBkaccount() {
