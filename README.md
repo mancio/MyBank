@@ -55,3 +55,6 @@ Is on a free host at [https://remotemysql.com](https://remotemysql.com)
 * [https://medium.com/@akourtim.ahmed/oauth-2-centralized-authorization-with-spring-boot-2-0-2-and-spring-security-5-and-jdbc-token-store-8dbc063bd5d4](https://medium.com/@akourtim.ahmed/oauth-2-centralized-authorization-with-spring-boot-2-0-2-and-spring-security-5-and-jdbc-token-store-8dbc063bd5d4)
 * [https://dzone.com/articles/secure-spring-rest-with-spring-security-and-oauth2](https://dzone.com/articles/secure-spring-rest-with-spring-security-and-oauth2)
 * [https://github.com/rajithd/spring-boot-oauth2](https://github.com/rajithd/spring-boot-oauth2)
+* [https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/client/JdbcClientDetailsService.java](https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/client/JdbcClientDetailsService.java)
+to modify tables name, columns and queries
+* [https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/test/resources/schema.sql](https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/test/resources/schema.sql) original sql schema
