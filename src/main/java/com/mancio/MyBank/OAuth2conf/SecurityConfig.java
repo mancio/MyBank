@@ -1,19 +1,17 @@
 package com.mancio.MyBank.OAuth2conf;
 
+import com.mancio.MyBank.Service.UserServCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.UserCredentialsDataSourceAdapter;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.annotation.Resource;
 import java.security.SecureRandom;
 
 @Configuration
@@ -31,18 +29,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     };
 
     @Autowired
-    private UserCredentials usercredentials;
+    private UserServCredentials userservcredentials;
 
-    @Override
     @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
+    public BCryptPasswordEncoder encoder(){
+        return new BCryptPasswordEncoder(10, rangen());
     }
 
-    @Autowired
-    public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(usercredentials)
-                .passwordEncoder(encoder());
+    private SecureRandom rangen(){
+        SecureRandom random = new SecureRandom();
+        random.nextBytes(SALT.getBytes());
+        return random;
     }
 
     @Override
@@ -54,15 +51,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(PUB_LINK).permitAll();
     }
 
-    @Bean
-    public BCryptPasswordEncoder encoder(){
-        return new BCryptPasswordEncoder(10, rangen());
-    }
-
-    private SecureRandom rangen(){
-        SecureRandom random = new SecureRandom();
-        random.nextBytes(SALT.getBytes());
-        return random;
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userservcredentials).passwordEncoder(passwordEncoder());
     }
 
 
