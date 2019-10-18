@@ -16,7 +16,12 @@ another.
 
 #### RestAPI
 
-* [http://localhost:8080//
+* [http://localhost:8080](http://localhost:8080) redirect to [http://localhost:8080/login](http://localhost:8080/login)
+* [http://localhost:8080/signup](http://localhost:8080)
+* [http://localhost:8080/help](http://localhost:8080/help)
+* [http://localhost:8080/myaccount/{id}](http://localhost:8080/myaccount/{id})
+* [http://localhost:8080/history/{id}](http://localhost:8080/history/{id})
+* [http://localhost:8080/transfer/{id}](http://localhost:8080/transfer/{id})
 
 
 #### Database model
