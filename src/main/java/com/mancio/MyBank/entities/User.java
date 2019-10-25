@@ -1,46 +1,61 @@
 package com.mancio.MyBank.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mancio.MyBank.entities.Security.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "User_ID")
+    @Column(name = "user_ID", nullable = false, updatable = false)
     private long id;
-    @Column(name = "Nickname")
+    @Column(name = "nickname", nullable = false)
     private String nickname;
-    @Column(name = "Password")
+    @Column(name = "password", nullable = false)
     private String pass;
-    @Column(name = "Access_Status_Code")
+    @Column(name = "access_status_code", nullable = false)
     private int ac_st_code;
-    @Column(name = "Name")
+    @Column(name = "name", nullable = false, updatable = false) // visit the bank
     private String name;
-    @Column(name = "Middle_Name")
+    @Column(name = "middle_name", updatable = false)
     private String m_name;
-    @Column(name = "Last_Name")
+    @Column(name = "last_Name", nullable = false, updatable = false) // visit the bank
     private String surname;
-    @Column(name = "Phone_Prefix")
+    @Column(name = "phone_prefix")
     private int ph_prex;
-    @Column(name = "Phone")
+    @Column(name = "phone")
     private int phone;
-    @Column(name = "Mail")
+    @Column(name = "mail", nullable = false, unique = true)
     private String mail;
-    @Column(name = "U_Address_ID")
+    @Column(name = "u_address_ID", nullable = false, unique = true)
     private int u_address;
-    @Column(name = "Branch_ID")
+    @Column(name = "branch_ID", nullable = false, unique = true)
     private int branch_id;
 
-    @OneToMany(mappedBy = "User")
+    @OneToMany(mappedBy = "user")
     private Set<Bank_Account> bkaccount;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<UserRole> userRoles = new HashSet<>();
+
+    public Set<UserRole> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(Set<UserRole> userRoles) {
+        this.userRoles = userRoles;
+    }
 
     public long getId() {
         return id;

@@ -3,26 +3,28 @@ package com.mancio.MyBank.entities;
 import javax.persistence.*;
 import java.util.Set;
 
+@Entity
+@Table(name = "user_addresses")
 public class User_Addresses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "U_Address_ID")
+    @Column(name = "u_address_ID", updatable = false, nullable = false)
     private long u_ad_id;
-    @Column(name = "Street")
+    @Column(name = "street", nullable = false)
     private String street;
-    @Column(name = "City")
+    @Column(name = "city", nullable = false)
     private String city;
-    @Column(name = "Zip")
+    @Column(name = "zip", nullable = false)
     private String zip;
-    @Column(name = "Region")
+    @Column(name = "region", nullable = false)
     private String region;
-    @Column(name = "Country")
+    @Column(name = "country", nullable = false)
     private String country;
-    @Column(name = "State")
+    @Column(name = "state", nullable = false)
     private String state;
 
-    @OneToMany(mappedBy = "User_Addresses")
+    @OneToMany(mappedBy = "user_addresses")
     private Set<User> user;
 
     public long getU_ad_id() {

@@ -25,6 +25,6 @@ public class HomeCont {
 
     @RequestMapping(value = "/privatearea", method = RequestMethod.GET)
     public String privatepage(Model model, Principal principal){
-        
+
     }
 }

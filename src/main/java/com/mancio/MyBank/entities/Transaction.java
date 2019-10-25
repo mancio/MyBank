@@ -5,20 +5,18 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Transaction")
+@Table(name = "transaction")
 public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Transaction_ID")
+    @Column(name = "transaction_ID", nullable = false, updatable = false)
     private long tr_id;
-    @Column(name = "Sender_Account_Code")
-    private String send_ac_code;
-    @Column(name = "Sender_Account_Number")
-    private int send_ac_num;
+    @Column(name = "sender_account_number", nullable = false)
+    private String send_ac_num;
     @Column(name = "Access_Description")
     private String ac_desc;
-    @Column(name = "Date")
+    @Column(name = "Date", nullable = false, updatable = false)
     private LocalDate date;
     @Column(name = "Receiver_Name")
     private String rec_name;
