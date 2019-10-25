@@ -28,7 +28,7 @@ public class Transaction {
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_number", nullable = false, unique = true, updatable = false)
+    @JoinColumn(name = "account_number")
     private Bank_Account bank_account;
 
     public long getTr_id() {
