@@ -49,13 +49,9 @@ public class User implements UserDetails {
     @JsonIgnore
     private Set<UserRole> userRoles = new HashSet<>();
 
-    public Set<UserRole> getUserRoles() {
-        return userRoles;
-    }
-
-    public void setUserRoles(Set<UserRole> userRoles) {
-        this.userRoles = userRoles;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "u_address_ID")
+    private User_Addresses user_addresses;
 
     public long getId() {
         return id;
@@ -159,6 +155,22 @@ public class User implements UserDetails {
 
     public void setBkaccount(Set<Bank_Account> bkaccount) {
         this.bkaccount = bkaccount;
+    }
+
+    public Set<UserRole> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(Set<UserRole> userRoles) {
+        this.userRoles = userRoles;
+    }
+
+    public User_Addresses getUser_addresses() {
+        return user_addresses;
+    }
+
+    public void setUser_addresses(User_Addresses user_addresses) {
+        this.user_addresses = user_addresses;
     }
 
     @Override
