@@ -9,7 +9,7 @@ public class Branch_Addresses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "b_address_ID", updatable = false)
+    @Column(name = "b_address_ID", updatable = false, nullable = false)
     private long b_ad_id;
     @Column(name = "street")
     private String street;
@@ -17,11 +17,11 @@ public class Branch_Addresses {
     private String city;
     @Column(name = "zip")
     private String zip;
-    @Column(name = "region")
+    @Column(name = "region", nullable = false)
     private String region;
-    @Column(name = "country")
+    @Column(name = "country", nullable = false)
     private String country;
-    @Column(name = "state")
+    @Column(name = "state", nullable = false)
     private String state;
 
     @OneToMany(mappedBy = "branch_addresses")

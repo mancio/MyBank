@@ -7,15 +7,15 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "Branch_Services")
+@Table(name = "branch_services")
 public class Branch_Services {
-    @Id
-    @Column(name = "Branch_Type_Code")
-    private String br_tp_code;
-    @Column(name = "Service_List")
-    private String slist;
 
-    @OneToMany(mappedBy = "Branch_Services")
+    @Id
+    @Column(name = "branch_type_code", nullable = false)
+    private String br_tp_code;
+    @Column(name = "service_list")
+    private String slist;
+    @OneToMany(mappedBy = "branch_services")
     private Set<Branches> brserv;
 
 

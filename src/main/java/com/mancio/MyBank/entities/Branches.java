@@ -4,31 +4,34 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "Branches")
+@Table(name = "branches")
 public class Branches {
     @Id
-    @Column(name = "Branch_ID")
+    @Column(name = "branch_ID", nullable = false, updatable = false)
     private long branch_id;
-    @Column(name = "B_Address_ID")
+    @Column(name = "b_address_ID")
     private long b_address_id;
-    @Column(name = "Bank_ID")
+    @Column(name = "bank_ID")
     private long bank_id;
-    @Column(name = "Branch_Type_Code")
+    @Column(name = "branch_type_code", nullable = false)
     private String branch_code;
-    @Column(name = "Branch_Details")
+    @Column(name = "branch_details")
     private String branch_details;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Bank_ID", nullable = false)
+    @JoinColumn(name = "bank_ID", nullable = false)
     private Bank bank;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Address_ID", nullable = false)
-    private Addresses addresses;
+    @JoinColumn(name = "b_address_ID", nullable = false)
+    private Branch_Addresses b_addresses;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Branch_Type_Code", nullable = false)
+    @JoinColumn(name = "branch_type_code", nullable = false)
     private Branch_Services brserv;
+
+    @OneToMany(mappedBy = "branches")
+    private User user;
 
     public long getBranch_id() {
         return branch_id;
@@ -74,17 +77,16 @@ public class Branches {
         return bank;
     }
 
-
     public void setBank(Bank bank) {
         this.bank = bank;
     }
 
-    public Addresses getAddresses() {
-        return addresses;
+    public Branch_Addresses getB_addresses() {
+        return b_addresses;
     }
 
-    public void setAddresses(Addresses addresses) {
-        this.addresses = addresses;
+    public void setB_addresses(Branch_Addresses b_addresses) {
+        this.b_addresses = b_addresses;
     }
 
     public Branch_Services getBrserv() {
@@ -93,5 +95,13 @@ public class Branches {
 
     public void setBrserv(Branch_Services brserv) {
         this.brserv = brserv;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

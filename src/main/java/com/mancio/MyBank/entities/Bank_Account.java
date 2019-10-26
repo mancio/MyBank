@@ -1,38 +1,31 @@
 package com.mancio.MyBank.entities;
 
 import org.hibernate.Transaction;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Set;
 
 
 @Entity
-@Table(name = "Bank_Account")
+@Table(name = "bank_account")
 public class Bank_Account {
 
     @Id
-    @Column(name = "Account_Number", updatable = false)
+    @Column(name = "account_number", updatable = false, nullable = false)
     private int ac_number;
-    @Column(name = "Country_Code")
+    @Column(name = "country_code", updatable = false, nullable = false)
     private String country;
-    @Column(name = "User_ID")
+    @Column(name = "user_ID")
     private long user_id;
-    @Column(name = "Balance")
+    @Column(name = "balance", nullable = false)
     private BigDecimal balance;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "User_ID", nullable = false)
+    @JoinColumn(name = "user_ID")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Country_Code", nullable = false)
-    private Account_Country_Code account_country_code;
-
-    @OneToMany(mappedBy = "Bank_Account")
+    @OneToMany(mappedBy = "bank_account")
     private Set<Transaction> transactions;
 
     public int getAc_number() {
@@ -73,14 +66,6 @@ public class Bank_Account {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Account_Country_Code getAccount_country_code() {
-        return account_country_code;
-    }
-
-    public void setAccount_country_code(Account_Country_Code account_country_code) {
-        this.account_country_code = account_country_code;
     }
 
     public Set<Transaction> getTransactions() {
