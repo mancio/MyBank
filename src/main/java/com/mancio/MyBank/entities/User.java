@@ -1,6 +1,7 @@
 package com.mancio.MyBank.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mancio.MyBank.entities.Security.Authority;
 import com.mancio.MyBank.entities.Security.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,8 +20,8 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_ID", nullable = false, updatable = false)
     private long id;
-    @Column(name = "nickname", nullable = false)
-    private String nickname;
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
     @Column(name = "password", nullable = false)
     private String pass;
     @Column(name = "access_status_code", nullable = false)
@@ -61,19 +62,19 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPass() {
+    public String getPassword() {
         return pass;
     }
 
-    public void setPass(String pass) {
+    public void setPassword(String pass) {
         this.pass = pass;
     }
 
@@ -175,17 +176,9 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        userRoles.forEach(ur -> authorities.add(new Authority(ur.getRole().getName())));
+        return authorities;
     }
 
     @Override
