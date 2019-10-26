@@ -6,12 +6,12 @@ import com.mancio.MyBank.entities.User;
 import javax.persistence.*;
 
 @Entity
-@Table(name="User_Role")
+@Table(name="user_role")
 public class UserRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "User_Role_ID")
+    @Column(name = "user_role_ID")
     private long userRoleId;
 
     public UserRole(User user, Role role) {
@@ -21,12 +21,12 @@ public class UserRole {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "User_ID")
+    @JoinColumn(name = "user_ID")
     private User user;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "Role_ID")
+    @JoinColumn(name = "role_ID")
     private Role role;
 
     public UserRole() {}

@@ -5,17 +5,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "Role")
+@Table(name = "role")
 public class Role {
 
     @Id
-    @Column(name = "Role_ID")
+    @Column(name = "role_ID")
     private int roleId;
 
-    @Column(name = "Role_Name")
+    @Column(name = "role_name")
     private String name;
 
-    @OneToMany(mappedBy = "Role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<UserRole> userRoles = new HashSet<>();
 
     public Role() {

@@ -5,16 +5,16 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "Bank")
+@Table(name = "bank")
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Bank_ID")
+    @Column(name = "bank_ID")
     private long bank_id;
-    @Column(name = "Bank_Details")
+    @Column(name = "bank_details")
     private String bk_det;
 
-    @OneToMany(mappedBy = "Bank")
+    @OneToMany(mappedBy = "bank")
     private Set<Branches> branches;
 
     public long getBank_id() {
