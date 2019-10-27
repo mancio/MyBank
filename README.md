@@ -39,11 +39,12 @@ another.
 Is on a free host at [https://remotemysql.com](https://remotemysql.com)
 
 ##### Test database
-* User 60peXtzmRD
-* Database 60peXtzmRD
-* Pass AhBty88X2k
-* Url: remotemysql.com
-* port: 3306
+* Mail: haced@netmail8.com
+* Username: QR9KltXLfl
+* Database name: QR9KltXLfl
+* Password: 1vHchtIkrQ
+* Server: remotemysql.com
+* Port: 3306
 
 #### Database design app
 
