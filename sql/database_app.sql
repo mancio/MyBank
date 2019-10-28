@@ -1,4 +1,4 @@
-# drop all tables
+# drop all tables independently by foreigner keys
 SET foreign_key_checks = 0;
 DROP TABLE IF EXISTS
 bank, branches, branch_services, user_addresses, branch_addresses,
