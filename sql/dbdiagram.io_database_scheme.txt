@@ -2,116 +2,102 @@
 
 // App MyBank
 
-Table bank{
-  bank_ID int PK
-  bank_details varchar(255)
+Table "bank" {
+  "bank_ID" bigint [pk]
+  "bank_details" varchar(255)
 }
 
-Table branches{
-  branch_ID int PK
-  b_address_ID int
-  bank_ID int
-  branch_type_code varchar(10)
-  branch_details varchar(255)
+Table "branch_services" {
+  "branch_type_code" varchar(50) [pk]
+  "service_list" varchar(255)
 }
 
-Table branch_services{
-  branch_type_code varchar(10) PK
-  service_list varchar(255)
+Table "branch_addresses" {
+  "b_address_ID" bigint [pk]
+  "street" varchar(60)
+  "city" varchar(60)
+  "zip" varchar(60)
+  "region" varchar(60)
+  "country" varchar(60)
+  "state" varchar(60)
 }
 
-Table user_addresses{
-  u_address_ID int PK
-  street varchar(255)
-  city varchar(255)
-  zip varchar(255)
-  region varchar(255)
-  country varchar(255)
-  state varchar(255)
+Table "branches" {
+  "branch_ID" bigint [pk]
+  "b_address_ID" bigint
+  "bank_ID" bigint
+  "branch_type_code" varchar(50)
+  "branch_details" varchar(255)
 }
 
-Table branch_addresses{
-  b_address_ID int PK
-  street varchar(255)
-  city varchar(255)
-  zip varchar(255)
-  region varchar(255)
-  country varchar(255)
-  state varchar(255)
+Table "user_addresses" {
+  "u_address_ID" bigint [pk]
+  "street" varchar(60) [not null]
+  "city" varchar(60)
+  "zip" varchar(60)
+  "region" varchar(60)
+  "country" varchar(60)
+  "state" varchar(60)
 }
 
-Table user {
-  user_ID int PK
-  username varchar(10) [unique]
-  password varchar(50)
-  access_status_code tinyint(1) [note: "1 ok, 0 banned"]
-  name varchar(20)
-  middle_name varchar(20)
-  last_name varchar(20)
-  phone_prefix int(5)
-  phone int(20) [unique]
-  mail varchar(20) [unique]
-  u_address_ID int
-  branch_ID int
+Table "user" {
+  "user_ID" bigint [pk]
+  "username" varchar(60) [unique]
+  "password" varchar(60)
+  "access_status_code" tinyint(1) [note: '1 ok, 0 banned']
+  "name" varchar(60)
+  "middle_name" varchar(60)
+  "last_name" varchar(60)
+  "phone_prefix" int(5)
+  "phone" int(20) [unique]
+  "mail" varchar(20) [unique]
+  "u_address_ID" bigint
+  "branch_ID" bigint
 }
 
-
-
-
-
-Table bank_account {
-  account_number int(50) PK
-  country_code varchar(5)
-  user_ID int
-  balance decimal(50)
-
+Table "bank_account" {
+  "account_number" int(60) [pk]
+  "country_code" varchar(5)
+  "user_ID" bigint
+  "balance" "decimal(20, 2)"
 }
 
-
-
-Table transaction {
-  transaction_ID int PK
-  sender_account_number int(50)
-  transfer_date Date
-  receiver_name varchar(255)
-  receiver_account_number varchar(50)
-  trans_amount decimal(50) [note: "do not use float"]
-  trans_description varchar(255)
-  trans_status varchar(255)
-
+Table "transaction" {
+  "transaction_ID" bigint [pk]
+  "sender_account_number" int(60)
+  "transfer_date" Date
+  "receiver_name" varchar(255)
+  "receiver_account_number" varchar(60)
+  "trans_amount" "decimal(20, 2)" [note: 'do not use float']
+  "trans_description" varchar(255)
+  "trans_status" varchar(255)
 }
 
-
-
-Ref: user.user_ID < bank_account.user_ID
-
-Ref: bank_account.account_number < transaction.sender_account_number
-
-Ref: bank.bank_ID < branches.bank_ID
-
-Ref: branches.branch_ID < user.branch_ID
-Ref: user.u_address_ID > user_addresses.u_address_ID
-
-Ref: branches.b_address_ID > branch_addresses.b_address_ID
-
-
-Ref: branch_services.branch_type_code < branches.branch_type_code
-
-
-
-
-
-//OAuth2 Security standard database
-Table user_role {
-  user_role_ID int PK
-  user_ID int
-  role_ID varchar(255)
+Table "role" {
+  "role_ID" bigint [pk]
+  "role_name" varchar(255)
 }
 
-Table role {
-  role_ID int PK
-  role_name varchar(255)
+Table "user_role" {
+  "user_role_ID" bigint [pk]
+  "user_ID" bigint
+  "role_ID" bigint
 }
 
-Ref: user.user_ID < user_role.user_ID
-Ref: user_role.role_ID > role.role_ID
+Ref:"branch_addresses"."b_address_ID" < "branches"."b_address_ID"
+
+Ref:"bank"."bank_ID" < "branches"."bank_ID"
+
+Ref:"branch_services"."branch_type_code" < "branches"."branch_type_code"
+
+Ref:"user_addresses"."u_address_ID" < "user"."u_address_ID"
+
+Ref:"branches"."branch_ID" < "user"."branch_ID"
+
+Ref:"user"."user_ID" < "bank_account"."user_ID"
+
+Ref:"bank_account"."account_number" < "transaction"."sender_account_number"
+
+Ref:"user"."user_ID" < "user_role"."user_ID"
+
+Ref:"role"."role_ID" < "user_role"."role_ID"
