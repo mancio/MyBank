@@ -54,6 +54,10 @@ public class User implements UserDetails {
     @JoinColumn(name = "u_address_ID")
     private User_Addresses user_addresses;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "branch_ID")
+    private Branches branches;
+
     public long getId() {
         return id;
     }
@@ -172,6 +176,22 @@ public class User implements UserDetails {
 
     public void setUser_addresses(User_Addresses user_addresses) {
         this.user_addresses = user_addresses;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public Branches getBranches() {
+        return branches;
+    }
+
+    public void setBranches(Branches branches) {
+        this.branches = branches;
     }
 
     @Override

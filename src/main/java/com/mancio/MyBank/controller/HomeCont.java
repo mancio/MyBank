@@ -1,10 +1,6 @@
 package com.mancio.MyBank.controller;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.security.Principal;
 
 public class HomeCont {
 
@@ -23,8 +19,9 @@ public class HomeCont {
         return "signup page";
     }
 
+    /*
     @RequestMapping(value = "/privatearea", method = RequestMethod.GET)
     public String privatepage(Model model, Principal principal){
 
-    }
+    }*/
 }

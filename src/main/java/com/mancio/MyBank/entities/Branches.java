@@ -1,6 +1,7 @@
 package com.mancio.MyBank.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -31,7 +32,7 @@ public class Branches {
     private Branch_Services brserv;
 
     @OneToMany(mappedBy = "branches")
-    private User user;
+    private Set<User> user;
 
     public long getBranch_id() {
         return branch_id;
@@ -97,11 +98,11 @@ public class Branches {
         this.brserv = brserv;
     }
 
-    public User getUser() {
+    public Set<User> getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Set<User> user) {
         this.user = user;
     }
 }
