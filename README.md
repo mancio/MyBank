@@ -3,6 +3,9 @@
 ## The rest API money transfer app
 
 ### Working in progress :)
+#### TODO
+* change class names removing "_"
+* ... a lot of stuff
 
 #### Description
 
