@@ -44,7 +44,7 @@ public class User implements UserDetails {
     private int branch_id;
 
     @OneToMany(mappedBy = "user")
-    private Set<Bank_Account> bkaccount;
+    private Set<BankAccount> bkaccount;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
@@ -154,11 +154,11 @@ public class User implements UserDetails {
         this.branch_id = branch_id;
     }
 
-    public Set<Bank_Account> getBkaccount() {
+    public Set<BankAccount> getBkaccount() {
         return bkaccount;
     }
 
-    public void setBkaccount(Set<Bank_Account> bkaccount) {
+    public void setBkaccount(Set<BankAccount> bkaccount) {
         this.bkaccount = bkaccount;
     }
 

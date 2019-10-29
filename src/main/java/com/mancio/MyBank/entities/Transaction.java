@@ -29,7 +29,7 @@ public class Transaction {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_number")
-    private Bank_Account bank_account;
+    private BankAccount bankaccount;
 
     public long getTr_id() {
         return tr_id;
@@ -95,11 +95,11 @@ public class Transaction {
         this.status = status;
     }
 
-    public Bank_Account getBank_account() {
-        return bank_account;
+    public BankAccount getBankaccount() {
+        return bankaccount;
     }
 
-    public void setBank_account(Bank_Account bank_account) {
-        this.bank_account = bank_account;
+    public void setBankaccount(BankAccount bankaccount) {
+        this.bankaccount = bankaccount;
     }
 }

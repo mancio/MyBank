@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "bank_account")
-public class Bank_Account {
+public class BankAccount {
 
     @Id
     @Column(name = "account_number", updatable = false, nullable = false)
@@ -26,7 +26,7 @@ public class Bank_Account {
     private User user;
 
     @OneToMany(mappedBy = "bank_account")
-    private Set<Transaction> transactions;
+    private Set<Transaction> transaction;
 
     public int getAc_number() {
         return ac_number;
@@ -69,10 +69,10 @@ public class Bank_Account {
     }
 
     public Set<Transaction> getTransactions() {
-        return transactions;
+        return transaction;
     }
 
     public void setTransactions(Set<Transaction> transactions) {
-        this.transactions = transactions;
+        this.transaction = transactions;
     }
 }
