@@ -18,30 +18,30 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_ID", nullable = false, updatable = false)
+    @Column(name = "userid", nullable = false, updatable = false)
     private long id;
     @Column(name = "username", nullable = false, unique = true)
     private String username;
     @Column(name = "password", nullable = false)
     private String pass;
-    @Column(name = "access_status_code", nullable = false)
-    private int ac_st_code;
+    @Column(name = "accessstatuscode", nullable = false)
+    private int acstcode;
     @Column(name = "name", nullable = false, updatable = false) // visit the bank
     private String name;
-    @Column(name = "middle_name", updatable = false)
+    @Column(name = "middlename", updatable = false)
     private String m_name;
-    @Column(name = "last_Name", nullable = false, updatable = false) // visit the bank
+    @Column(name = "lastName", nullable = false, updatable = false) // visit the bank
     private String surname;
-    @Column(name = "phone_prefix")
-    private int ph_prex;
+    @Column(name = "phoneprefix")
+    private int phprex;
     @Column(name = "phone")
     private int phone;
     @Column(name = "mail", nullable = false, unique = true)
     private String mail;
-    @Column(name = "u_address_ID", nullable = false, unique = true)
-    private int u_address;
-    @Column(name = "branch_ID", nullable = false, unique = true)
-    private int branch_id;
+    @Column(name = "uaddressid", nullable = false, unique = true)
+    private int uaddress;
+    @Column(name = "branchid", nullable = false, unique = true)
+    private int branchid;
 
     @OneToMany(mappedBy = "user")
     private Set<BankAccount> bkaccount;
@@ -52,7 +52,7 @@ public class User implements UserDetails {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "u_address_ID")
-    private User_Addresses user_addresses;
+    private UserAddresses useraddresses;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "branch_ID")
@@ -82,12 +82,12 @@ public class User implements UserDetails {
         this.pass = pass;
     }
 
-    public int getAc_st_code() {
-        return ac_st_code;
+    public int getAcstcode() {
+        return acstcode;
     }
 
-    public void setAc_st_code(int ac_st_code) {
-        this.ac_st_code = ac_st_code;
+    public void setAcstcode(int acstcode) {
+        this.acstcode = acstcode;
     }
 
     public String getName() {
@@ -114,12 +114,12 @@ public class User implements UserDetails {
         this.surname = surname;
     }
 
-    public int getPh_prex() {
-        return ph_prex;
+    public int getPhprex() {
+        return phprex;
     }
 
-    public void setPh_prex(int ph_prex) {
-        this.ph_prex = ph_prex;
+    public void setPhprex(int phprex) {
+        this.phprex = phprex;
     }
 
     public int getPhone() {
@@ -138,20 +138,20 @@ public class User implements UserDetails {
         this.mail = mail;
     }
 
-    public int getU_address() {
-        return u_address;
+    public int getUaddress() {
+        return uaddress;
     }
 
-    public void setU_address(int u_address) {
-        this.u_address = u_address;
+    public void setUaddress(int uaddress) {
+        this.uaddress = uaddress;
     }
 
-    public int getBranch_id() {
-        return branch_id;
+    public int getBranchid() {
+        return branchid;
     }
 
-    public void setBranch_id(int branch_id) {
-        this.branch_id = branch_id;
+    public void setBranchid(int branchid) {
+        this.branchid = branchid;
     }
 
     public Set<BankAccount> getBkaccount() {
@@ -170,12 +170,12 @@ public class User implements UserDetails {
         this.userRoles = userRoles;
     }
 
-    public User_Addresses getUser_addresses() {
-        return user_addresses;
+    public UserAddresses getUseraddresses() {
+        return useraddresses;
     }
 
-    public void setUser_addresses(User_Addresses user_addresses) {
-        this.user_addresses = user_addresses;
+    public void setUseraddresses(UserAddresses useraddresses) {
+        this.useraddresses = useraddresses;
     }
 
     public String getPass() {

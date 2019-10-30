@@ -4,18 +4,18 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "user_addresses")
-public class User_Addresses {
+@Table(name = "branchaddresses")
+public class BranchAddresses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "u_address_ID", updatable = false, nullable = false)
-    private long u_ad_id;
-    @Column(name = "street", nullable = false)
+    @Column(name = "baddressid", updatable = false, nullable = false)
+    private long bankadrid;
+    @Column(name = "street")
     private String street;
-    @Column(name = "city", nullable = false)
+    @Column(name = "city")
     private String city;
-    @Column(name = "zip", nullable = false)
+    @Column(name = "zip")
     private String zip;
     @Column(name = "region", nullable = false)
     private String region;
@@ -24,15 +24,15 @@ public class User_Addresses {
     @Column(name = "state", nullable = false)
     private String state;
 
-    @OneToMany(mappedBy = "user_addresses")
-    private Set<User> user;
+    @OneToMany(mappedBy = "branchaddresses")
+    private Set<Branches> branches;
 
-    public long getU_ad_id() {
-        return u_ad_id;
+    public long getBankadrid() {
+        return bankadrid;
     }
 
-    public void setU_ad_id(long u_ad_id) {
-        this.u_ad_id = u_ad_id;
+    public void setBankadrid(long bankadrid) {
+        this.bankadrid = bankadrid;
     }
 
     public String getStreet() {
@@ -83,11 +83,11 @@ public class User_Addresses {
         this.state = state;
     }
 
-    public Set<User> getUser() {
-        return user;
+    public Set<Branches> getBranches() {
+        return branches;
     }
 
-    public void setUser(Set<User> user) {
-        this.user = user;
+    public void setBranches(Set<Branches> branches) {
+        this.branches = branches;
     }
 }

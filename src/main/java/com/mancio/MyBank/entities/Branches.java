@@ -8,70 +8,70 @@ import java.util.Set;
 @Table(name = "branches")
 public class Branches {
     @Id
-    @Column(name = "branch_ID", nullable = false, updatable = false)
-    private long branch_id;
-    @Column(name = "b_address_ID")
-    private long b_address_id;
-    @Column(name = "bank_ID")
-    private long bank_id;
-    @Column(name = "branch_type_code", nullable = false)
-    private String branch_code;
-    @Column(name = "branch_details")
-    private String branch_details;
+    @Column(name = "branchid", nullable = false, updatable = false)
+    private long branchid;
+    @Column(name = "baddressid")
+    private long baddressid;
+    @Column(name = "bankid")
+    private long bankid;
+    @Column(name = "branchtypecode", nullable = false)
+    private String brtpcode;
+    @Column(name = "branchdetails")
+    private String branchdetails;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bank_ID", nullable = false)
+    @JoinColumn(name = "bankid", nullable = false)
     private Bank bank;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "b_address_ID", nullable = false)
-    private Branch_Addresses b_addresses;
+    @JoinColumn(name = "baddressid", nullable = false)
+    private BranchAddresses branchaddresses;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "branch_type_code", nullable = false)
-    private Branch_Services brserv;
+    @JoinColumn(name = "branchtypecode", nullable = false)
+    private BranchServices branchservices;
 
     @OneToMany(mappedBy = "branches")
     private Set<User> user;
 
-    public long getBranch_id() {
-        return branch_id;
+    public long getBranchid() {
+        return branchid;
     }
 
-    public void setBranch_id(long branch_id) {
-        this.branch_id = branch_id;
+    public void setBranchid(long branchid) {
+        this.branchid = branchid;
     }
 
-    public long getB_address_id() {
-        return b_address_id;
+    public long getBaddressid() {
+        return baddressid;
     }
 
-    public void setB_address_id(long b_address_id) {
-        this.b_address_id = b_address_id;
+    public void setBaddressid(long baddressid) {
+        this.baddressid = baddressid;
     }
 
-    public long getBank_id() {
-        return bank_id;
+    public long getBankid() {
+        return bankid;
     }
 
-    public void setBank_id(long bank_id) {
-        this.bank_id = bank_id;
+    public void setBankid(long bankid) {
+        this.bankid = bankid;
     }
 
-    public String getBranch_code() {
-        return branch_code;
+    public String getBrtpcode() {
+        return brtpcode;
     }
 
-    public void setBranch_code(String branch_code) {
-        this.branch_code = branch_code;
+    public void setBrtpcode(String brtpcode) {
+        this.brtpcode = brtpcode;
     }
 
-    public String getBranch_details() {
-        return branch_details;
+    public String getBranchdetails() {
+        return branchdetails;
     }
 
-    public void setBranch_details(String branch_details) {
-        this.branch_details = branch_details;
+    public void setBranchdetails(String branchdetails) {
+        this.branchdetails = branchdetails;
     }
 
     public Bank getBank() {
@@ -82,20 +82,20 @@ public class Branches {
         this.bank = bank;
     }
 
-    public Branch_Addresses getB_addresses() {
-        return b_addresses;
+    public BranchAddresses getBranchaddresses() {
+        return branchaddresses;
     }
 
-    public void setB_addresses(Branch_Addresses b_addresses) {
-        this.b_addresses = b_addresses;
+    public void setBranchaddresses(BranchAddresses branchaddresses) {
+        this.branchaddresses = branchaddresses;
     }
 
-    public Branch_Services getBrserv() {
-        return brserv;
+    public BranchServices getBranchservices() {
+        return branchservices;
     }
 
-    public void setBrserv(Branch_Services brserv) {
-        this.brserv = brserv;
+    public void setBranchservices(BranchServices branchservices) {
+        this.branchservices = branchservices;
     }
 
     public Set<User> getUser() {

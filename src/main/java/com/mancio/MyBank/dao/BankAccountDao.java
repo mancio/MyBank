@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface Bank_Account_dao extends CrudRepository<BankAccount,Long> {
+public interface BankAccountDao extends CrudRepository<BankAccount,Long> {
     BankAccount findByUser_Id(Long userId);
 }

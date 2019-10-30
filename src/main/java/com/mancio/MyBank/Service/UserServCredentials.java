@@ -1,6 +1,6 @@
 package com.mancio.MyBank.Service;
 
-import com.mancio.MyBank.dao.User_dao;
+import com.mancio.MyBank.dao.UserDao;
 import com.mancio.MyBank.entities.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,7 @@ public class UserServCredentials implements UserDetailsService {
     private static final Logger LOG = LoggerFactory.getLogger(UserServCredentials.class);
 
     @Autowired
-    private User_dao user_dao;
+    private UserDao user_dao;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

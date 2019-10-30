@@ -8,32 +8,32 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "bank_account")
+@Table(name = "bankaccount")
 public class BankAccount {
 
     @Id
-    @Column(name = "account_number", updatable = false, nullable = false)
-    private int ac_number;
-    @Column(name = "country_code", updatable = false, nullable = false)
+    @Column(name = "accountnumber", updatable = false, nullable = false)
+    private int acnumber;
+    @Column(name = "countrycode", updatable = false, nullable = false)
     private String country;
-    @Column(name = "user_ID")
-    private long user_id;
+    @Column(name = "userid")
+    private long userid;
     @Column(name = "balance", nullable = false)
     private BigDecimal balance;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_ID")
+    @JoinColumn(name = "userid")
     private User user;
 
-    @OneToMany(mappedBy = "bank_account")
+    @OneToMany(mappedBy = "bankaccount")
     private Set<Transaction> transaction;
 
-    public int getAc_number() {
-        return ac_number;
+    public int getAcnumber() {
+        return acnumber;
     }
 
-    public void setAc_number(int ac_number) {
-        this.ac_number = ac_number;
+    public void setAcnumber(int acnumber) {
+        this.acnumber = acnumber;
     }
 
     public String getCountry() {
@@ -44,12 +44,12 @@ public class BankAccount {
         this.country = country;
     }
 
-    public long getUser_id() {
-        return user_id;
+    public long getUserid() {
+        return userid;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setUserid(long userid) {
+        this.userid = userid;
     }
 
     public BigDecimal getBalance() {

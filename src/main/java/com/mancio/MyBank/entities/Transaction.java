@@ -10,41 +10,41 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "transaction_ID", nullable = false, updatable = false)
-    private long tr_id;
-    @Column(name = "sender_account_number", nullable = false, updatable = false)
-    private String send_ac_num;
-    @Column(name = "transfer_date", nullable = false, updatable = false)
+    @Column(name = "transactionid", nullable = false, updatable = false)
+    private long trid;
+    @Column(name = "accountnumber", nullable = false, updatable = false)
+    private String sendacnum;
+    @Column(name = "transferdate", nullable = false, updatable = false)
     private LocalDate date;
-    @Column(name = "receiver_name", nullable = false, updatable = false)
-    private String rec_name;
-    @Column(name = "receiver_account_number", nullable = false, updatable = false)
-    private String rec_ac_num;
-    @Column(name = "trans_amount", nullable = false, updatable = false)
+    @Column(name = "receivername", nullable = false, updatable = false)
+    private String recname;
+    @Column(name = "receiveraccountnumber", nullable = false, updatable = false)
+    private String recacnum;
+    @Column(name = "transamount", nullable = false, updatable = false)
     private BigDecimal amount;
-    @Column(name = "trans_description", nullable = false, updatable = false)
+    @Column(name = "transdescription", nullable = false, updatable = false)
     private String desc;
-    @Column(name = "trans_status", nullable = false, updatable = false)
+    @Column(name = "transstatus", nullable = false, updatable = false)
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_number")
+    @JoinColumn(name = "accountnumber")
     private BankAccount bankaccount;
 
-    public long getTr_id() {
-        return tr_id;
+    public long getTrid() {
+        return trid;
     }
 
-    public void setTr_id(long tr_id) {
-        this.tr_id = tr_id;
+    public void setTrid(long trid) {
+        this.trid = trid;
     }
 
-    public String getSend_ac_num() {
-        return send_ac_num;
+    public String getSendacnum() {
+        return sendacnum;
     }
 
-    public void setSend_ac_num(String send_ac_num) {
-        this.send_ac_num = send_ac_num;
+    public void setSendacnum(String sendacnum) {
+        this.sendacnum = sendacnum;
     }
 
     public LocalDate getDate() {
@@ -55,20 +55,20 @@ public class Transaction {
         this.date = date;
     }
 
-    public String getRec_name() {
-        return rec_name;
+    public String getRecname() {
+        return recname;
     }
 
-    public void setRec_name(String rec_name) {
-        this.rec_name = rec_name;
+    public void setRecname(String recname) {
+        this.recname = recname;
     }
 
-    public String getRec_ac_num() {
-        return rec_ac_num;
+    public String getRecacnum() {
+        return recacnum;
     }
 
-    public void setRec_ac_num(String rec_ac_num) {
-        this.rec_ac_num = rec_ac_num;
+    public void setRecacnum(String recacnum) {
+        this.recacnum = recacnum;
     }
 
     public BigDecimal getAmount() {

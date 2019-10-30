@@ -9,28 +9,28 @@ import java.util.Set;
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "bank_ID")
-    private long bank_id;
-    @Column(name = "bank_details")
-    private String bk_det;
+    @Column(name = "bankid")
+    private long bankid;
+    @Column(name = "bankdetails")
+    private String bkdet;
 
     @OneToMany(mappedBy = "bank")
     private Set<Branches> branches;
 
-    public long getBank_id() {
-        return bank_id;
+    public long getBankid() {
+        return bankid;
     }
 
-    public void setBank_id(long bank_id) {
-        this.bank_id = bank_id;
+    public void setBankid(long bankid) {
+        this.bankid = bankid;
     }
 
-    public String getBk_det() {
-        return bk_det;
+    public String getBkdet() {
+        return bkdet;
     }
 
-    public void setBk_det(String bk_det) {
-        this.bk_det = bk_det;
+    public void setBkdet(String bkdet) {
+        this.bkdet = bkdet;
     }
 
     public Set<Branches> getBranches() {
