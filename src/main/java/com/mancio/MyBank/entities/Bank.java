@@ -9,7 +9,7 @@ import java.util.Set;
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "bankid")
+    @Column(name = "bankid", updatable = false)
     private long bankid;
     @Column(name = "bankdetails")
     private String bkdet;

@@ -14,21 +14,21 @@ public class Branches {
     private long baddressid;
     @Column(name = "bankid")
     private long bankid;
-    @Column(name = "branchtypecode", nullable = false)
+    @Column(name = "branchtypecode")
     private String brtpcode;
     @Column(name = "branchdetails")
     private String branchdetails;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bankid", nullable = false)
+    @JoinColumn(name = "bankid", nullable = false, insertable=false, updatable=false)
     private Bank bank;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "baddressid", nullable = false)
+    @JoinColumn(name = "baddressid", nullable = false, insertable=false, updatable=false)
     private BranchAddresses branchaddresses;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "branchtypecode", nullable = false)
+    @JoinColumn(name = "branchtypecode", nullable = false, insertable=false, updatable=false)
     private BranchServices branchservices;
 
     @OneToMany(mappedBy = "branches")

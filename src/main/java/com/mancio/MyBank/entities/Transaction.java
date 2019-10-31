@@ -12,7 +12,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "transactionid", nullable = false, updatable = false)
     private long trid;
-    @Column(name = "accountnumber", nullable = false, updatable = false)
+    @Column(name = "senderaccountnumber", nullable = false, updatable = false)
     private String sendacnum;
     @Column(name = "transferdate", nullable = false, updatable = false)
     private LocalDate date;

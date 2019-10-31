@@ -77,14 +77,14 @@ CREATE TABLE IF NOT EXISTS `bankaccount` (
 
 CREATE TABLE IF NOT EXISTS `transaction` (
   `transactionid` bigint PRIMARY KEY,
-  `accountnumber` int(60),
+  `senderaccountnumber` int(60),
   `transferdate` Date,
   `receivername` varchar(255),
   `receiveraccountnumber` varchar(60),
   `transamount` decimal(20,2) COMMENT 'do not use float',
   `transdescription` varchar(255),
   `transstatus` varchar(255),
-  FOREIGN KEY (accountnumber) REFERENCES bankaccount(accountnumber)
+  FOREIGN KEY (senderaccountnumber) REFERENCES bankaccount(accountnumber)
 );
 
 CREATE TABLE IF NOT EXISTS `role` (

@@ -1,7 +1,5 @@
 package com.mancio.MyBank.entities;
 
-import org.hibernate.Transaction;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
@@ -22,7 +20,7 @@ public class BankAccount {
     private BigDecimal balance;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userid")
+    @JoinColumn(name = "userid", insertable=false, updatable=false)
     private User user;
 
     @OneToMany(mappedBy = "bankaccount")
@@ -68,11 +66,11 @@ public class BankAccount {
         this.user = user;
     }
 
-    public Set<Transaction> getTransactions() {
+    public Set<Transaction> getTransaction() {
         return transaction;
     }
 
-    public void setTransactions(Set<Transaction> transactions) {
-        this.transaction = transactions;
+    public void setTransaction(Set<Transaction> transaction) {
+        this.transaction = transaction;
     }
 }
