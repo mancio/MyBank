@@ -51,11 +51,11 @@ public class User implements UserDetails {
     private Set<UserRole> userRoles = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "u_address_ID")
+    @JoinColumn(name = "uaddressid", insertable = false, updatable = false)
     private UserAddresses useraddresses;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "branch_ID")
+    @JoinColumn(name = "branchid", insertable = false, updatable = false)
     private Branches branches;
 
     public long getId() {

@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import java.security.SecureRandom;
 
@@ -18,17 +19,10 @@ import java.security.SecureRandom;
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String SALT = "ib$iobio#$@#$";
-
-    // link that do not require authorization
-    private static final String[] PUB_LINK = {
-        "/",
-        "/signup",
-        "/help"
-    };
-
     @Autowired
     private UserServCredentials userservcredentials;
+
+    private static final String SALT = "ib$iobio#$@#$";
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -49,11 +43,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
-                .anonymous().disable()
-                .authorizeRequests()
-                .antMatchers(PUB_LINK).permitAll();
+                .authorizeRequests().
+//                antMatchers("/**").
+        antMatchers(PUB_LINK).
+                permitAll().anyRequest().authenticated();
+
+        http
+                .csrf().disable().cors().disable()
+                .formLogin().failureUrl("/index?error").defaultSuccessUrl("/userFront").loginPage("/index").permitAll()
+                .and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/index?logout").deleteCookies("remember-me").permitAll()
+                .and()
+                .rememberMe();
     }
+
+    // link that do not require authorization
+    private static final String[] PUB_LINK = {
+            "/webjars/**",
+            "/css/**",
+            "/js/**",
+            "/images/**",
+            "/",
+            "/about/**",
+            "/contact/**",
+            "/error/**/*",
+            "/console/**",
+            "/signup"
+    };
 
 
 
