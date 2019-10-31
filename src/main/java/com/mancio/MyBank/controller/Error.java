@@ -14,6 +14,6 @@ public class Error implements ErrorController {
     @ResponseBody
     public String getErrorPath() {
         // TODO Auto-generated method stub
-        return "No Mapping Found";
+        return "404 Not Found";
     }
 }

@@ -1,9 +1,9 @@
 package com.mancio.MyBank.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class HomeCont {
 
     @RequestMapping("/")
@@ -26,4 +26,6 @@ public class HomeCont {
     public String privatepage(Model model, Principal principal){
 
     }*/
+
+
 }
