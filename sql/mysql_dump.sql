@@ -23,7 +23,7 @@ USE `QR9KltXLfl` ;
 DROP TABLE IF EXISTS `QR9KltXLfl`.`bank` ;
 
 CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`bank` (
-  `bankid` BIGINT NOT NULL,
+  `bankid` BIGINT(20) NOT NULL,
   `bankdetails` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`bankid`))
 ENGINE = MyISAM
@@ -37,10 +37,10 @@ COLLATE = utf8_unicode_ci;
 DROP TABLE IF EXISTS `QR9KltXLfl`.`bankaccount` ;
 
 CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`bankaccount` (
-  `accountnumber` VARCHAR(60) NOT NULL,
-  `balance` DECIMAL(20,2) NOT NULL,
-  `userid` BIGINT NULL DEFAULT NULL,
-  PRIMARY KEY (`accountnumber`),
+  `senderaccountnumber` VARCHAR(255) NOT NULL,
+  `balance` DECIMAL(19,2) NOT NULL,
+  `userid` BIGINT(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`senderaccountnumber`),
   INDEX `FKpan6ppr6eevwfoemf9sfusqsx` (`userid` ASC) VISIBLE)
 ENGINE = MyISAM
 DEFAULT CHARACTER SET = utf8
@@ -53,7 +53,7 @@ COLLATE = utf8_unicode_ci;
 DROP TABLE IF EXISTS `QR9KltXLfl`.`branchaddresses` ;
 
 CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`branchaddresses` (
-  `baddressid` BIGINT NOT NULL,
+  `baddressid` BIGINT(20) NOT NULL,
   `city` VARCHAR(255) NULL DEFAULT NULL,
   `country` VARCHAR(255) NOT NULL,
   `region` VARCHAR(255) NOT NULL,
@@ -71,13 +71,13 @@ COLLATE = utf8_unicode_ci;
 DROP TABLE IF EXISTS `QR9KltXLfl`.`branches` ;
 
 CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`branches` (
-  `branchid` BIGINT NOT NULL,
-  `baddressid` BIGINT NULL DEFAULT NULL,
-  `bankid` BIGINT NULL DEFAULT NULL,
+  `branchid` BIGINT(20) NOT NULL,
+  `baddressid` BIGINT(20) NULL DEFAULT NULL,
+  `bankid` BIGINT(20) NULL DEFAULT NULL,
   `branchdetails` VARCHAR(255) NULL DEFAULT NULL,
   `branchtypecode` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`branchid`),
-  INDEX `FKkwlgfabubtuj79022slfui5gs` (`bankid` ASC) INVISIBLE,
+  INDEX `FKkwlgfabubtuj79022slfui5gs` (`bankid` ASC) VISIBLE,
   INDEX `FKgis79bl3eqb1wc0hx4harokfp` (`baddressid` ASC) VISIBLE,
   INDEX `FK43bsy21ojg21ntx03rlvjjhav` (`branchtypecode` ASC) VISIBLE)
 ENGINE = MyISAM
@@ -117,7 +117,7 @@ COLLATE = utf8_unicode_ci;
 DROP TABLE IF EXISTS `QR9KltXLfl`.`role` ;
 
 CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`role` (
-  `roleid` BIGINT NOT NULL,
+  `roleid` BIGINT(20) NOT NULL,
   `rolename` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`roleid`))
 ENGINE = MyISAM
@@ -131,8 +131,8 @@ COLLATE = utf8_unicode_ci;
 DROP TABLE IF EXISTS `QR9KltXLfl`.`transaction` ;
 
 CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`transaction` (
-  `transactionid` BIGINT NOT NULL,
-  `transamount` DECIMAL(20,2) NOT NULL,
+  `transactionid` BIGINT(20) NOT NULL,
+  `transamount` DECIMAL(19,2) NOT NULL,
   `transferdate` DATE NOT NULL,
   `transdescription` VARCHAR(255) NOT NULL,
   `receiveraccountnumber` VARCHAR(255) NOT NULL,
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`transaction` (
   `senderaccountnumber` VARCHAR(255) NOT NULL,
   `transstatus` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`transactionid`),
-  INDEX `FKojlf4catmmyktehpsj8r2748o` (`accountnumber` ASC) VISIBLE)
+  INDEX `FKom44wgrhqmpoulfotxdqu33yh` (`senderaccountnumber` ASC) VISIBLE)
 ENGINE = MyISAM
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
@@ -152,17 +152,17 @@ COLLATE = utf8_unicode_ci;
 DROP TABLE IF EXISTS `QR9KltXLfl`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`user` (
-  `userid` BIGINT NOT NULL,
-  `accessstatuscode` INT NOT NULL,
-  `branchid` BIGINT NOT NULL,
-  `middlename` VARCHAR(255) NULL DEFAULT NULL,
+  `userid` BIGINT(20) NOT NULL,
+  `accessstatuscode` INT(11) NOT NULL,
+  `branchid` BIGINT(20) NOT NULL,
   `mail` VARCHAR(255) NOT NULL,
+  `middlename` VARCHAR(255) NULL DEFAULT NULL,
   `name` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
-  `phone` VARCHAR(60) NULL DEFAULT NULL,
-  `phoneprefix` VARCHAR(20) NULL DEFAULT NULL,
+  `phone` VARCHAR(255) NULL DEFAULT NULL,
+  `phoneprefix` VARCHAR(255) NULL DEFAULT NULL,
   `lastname` VARCHAR(255) NOT NULL,
-  `uaddressid` BIGINT NOT NULL,
+  `uaddressid` BIGINT(20) NOT NULL,
   `username` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`userid`),
   UNIQUE INDEX `UK_9a5o9s3o28sca81u3v960pye3` (`branchid` ASC) VISIBLE,
@@ -180,7 +180,7 @@ COLLATE = utf8_unicode_ci;
 DROP TABLE IF EXISTS `QR9KltXLfl`.`useraddresses` ;
 
 CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`useraddresses` (
-  `uaddressid` BIGINT NOT NULL,
+  `uaddressid` BIGINT(20) NOT NULL,
   `city` VARCHAR(255) NOT NULL,
   `country` VARCHAR(255) NOT NULL,
   `region` VARCHAR(255) NOT NULL,
@@ -198,9 +198,9 @@ COLLATE = utf8_unicode_ci;
 DROP TABLE IF EXISTS `QR9KltXLfl`.`userrole` ;
 
 CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`userrole` (
-  `userroleid` BIGINT NOT NULL,
-  `roleid` BIGINT NULL DEFAULT NULL,
-  `userid` BIGINT NULL DEFAULT NULL,
+  `userroleid` BIGINT(20) NOT NULL,
+  `roleid` BIGINT(20) NULL DEFAULT NULL,
+  `userid` BIGINT(20) NULL DEFAULT NULL,
   PRIMARY KEY (`userroleid`),
   INDEX `FKp9uqhbg64l2v6p5i1ixunb645` (`roleid` ASC) VISIBLE,
   INDEX `FKljkcg6w3npwi6u5ua4gqp59sj` (`userid` ASC) VISIBLE)
