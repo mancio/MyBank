@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`user` (
   `password` VARCHAR(255) NOT NULL,
   `phone` INT(11) NULL DEFAULT NULL,
   `phoneprefix` INT(11) NULL DEFAULT NULL,
-  `last_name` VARCHAR(255) NOT NULL,
+  `lastname` VARCHAR(255) NOT NULL,
   `uaddressid` INT(11) NOT NULL,
   `username` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`userid`),

@@ -29,8 +29,8 @@ public class User implements UserDetails {
     @Column(name = "name", nullable = false, updatable = false) // visit the bank
     private String name;
     @Column(name = "middlename", updatable = false)
-    private String m_name;
-    @Column(name = "lastName", nullable = false, updatable = false) // visit the bank
+    private String midname;
+    @Column(name = "lastname", nullable = false, updatable = false) // visit the bank
     private String surname;
     @Column(name = "phoneprefix")
     private int phprex;
@@ -98,12 +98,12 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-    public String getM_name() {
-        return m_name;
+    public String getMidname() {
+        return midname;
     }
 
-    public void setM_name(String m_name) {
-        this.m_name = m_name;
+    public void setMidname(String midname) {
+        this.midname = midname;
     }
 
     public String getSurname() {
