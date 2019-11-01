@@ -11,13 +11,15 @@ public class BankAccount {
 
     @Id
     @Column(name = "accountnumber", updatable = false, nullable = false)
-    private int acnumber;
+    private String acnumber;
     @Column(name = "countrycode", updatable = false, nullable = false)
     private String country;
     @Column(name = "userid")
     private long userid;
     @Column(name = "balance", nullable = false)
     private BigDecimal balance;
+    @Column(name = "currency", nullable = false)
+    private String currency;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userid", insertable=false, updatable=false)
@@ -26,11 +28,11 @@ public class BankAccount {
     @OneToMany(mappedBy = "bankaccount")
     private Set<Transaction> transaction;
 
-    public int getAcnumber() {
+    public String getAcnumber() {
         return acnumber;
     }
 
-    public void setAcnumber(int acnumber) {
+    public void setAcnumber(String acnumber) {
         this.acnumber = acnumber;
     }
 
@@ -72,5 +74,13 @@ public class BankAccount {
 
     public void setTransaction(Set<Transaction> transaction) {
         this.transaction = transaction;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

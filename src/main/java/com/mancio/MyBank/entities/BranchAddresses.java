@@ -21,8 +21,7 @@ public class BranchAddresses {
     private String region;
     @Column(name = "country", nullable = false)
     private String country;
-    @Column(name = "state", nullable = false)
-    private String state;
+
 
     @OneToMany(mappedBy = "branchaddresses")
     private Set<Branches> branches;
@@ -73,14 +72,6 @@ public class BranchAddresses {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public Set<Branches> getBranches() {
