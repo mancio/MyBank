@@ -28,7 +28,7 @@ public class Transaction {
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "accountnumber")
+    @JoinColumn(name = "senderaccountnumber", insertable = false, updatable = false)
     private BankAccount bankaccount;
 
     public long getTrid() {

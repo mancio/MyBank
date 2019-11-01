@@ -33,15 +33,15 @@ public class User implements UserDetails {
     @Column(name = "lastname", nullable = false, updatable = false) // visit the bank
     private String surname;
     @Column(name = "phoneprefix")
-    private int phprex;
+    private String phprex;
     @Column(name = "phone")
-    private int phone;
+    private String phone;
     @Column(name = "mail", nullable = false, unique = true)
     private String mail;
     @Column(name = "uaddressid", nullable = false, unique = true)
-    private int uaddress;
+    private long uaddress;
     @Column(name = "branchid", nullable = false, unique = true)
-    private int branchid;
+    private long branchid;
 
     @OneToMany(mappedBy = "user")
     private Set<BankAccount> bkaccount;
@@ -114,19 +114,19 @@ public class User implements UserDetails {
         this.surname = surname;
     }
 
-    public int getPhprex() {
+    public String getPhprex() {
         return phprex;
     }
 
-    public void setPhprex(int phprex) {
+    public void setPhprex(String phprex) {
         this.phprex = phprex;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -138,7 +138,7 @@ public class User implements UserDetails {
         this.mail = mail;
     }
 
-    public int getUaddress() {
+    public long getUaddress() {
         return uaddress;
     }
 
@@ -146,7 +146,7 @@ public class User implements UserDetails {
         this.uaddress = uaddress;
     }
 
-    public int getBranchid() {
+    public long getBranchid() {
         return branchid;
     }
 

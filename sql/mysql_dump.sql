@@ -39,7 +39,6 @@ DROP TABLE IF EXISTS `QR9KltXLfl`.`bankaccount` ;
 CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`bankaccount` (
   `accountnumber` VARCHAR(60) NOT NULL,
   `balance` DECIMAL(20,2) NOT NULL,
-  `countrycode` VARCHAR(255) NOT NULL,
   `userid` BIGINT NULL DEFAULT NULL,
   PRIMARY KEY (`accountnumber`),
   INDEX `FKpan6ppr6eevwfoemf9sfusqsx` (`userid` ASC) VISIBLE)
@@ -140,7 +139,6 @@ CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`transaction` (
   `receivername` VARCHAR(255) NOT NULL,
   `senderaccountnumber` VARCHAR(255) NOT NULL,
   `transstatus` VARCHAR(255) NOT NULL,
-  `accountnumber` INT NULL DEFAULT NULL,
   PRIMARY KEY (`transactionid`),
   INDEX `FKojlf4catmmyktehpsj8r2748o` (`accountnumber` ASC) VISIBLE)
 ENGINE = MyISAM
@@ -161,8 +159,8 @@ CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`user` (
   `mail` VARCHAR(255) NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
-  `phone` INT(20) NULL DEFAULT NULL,
-  `phoneprefix` INT(10) NULL DEFAULT NULL,
+  `phone` VARCHAR(60) NULL DEFAULT NULL,
+  `phoneprefix` VARCHAR(20) NULL DEFAULT NULL,
   `lastname` VARCHAR(255) NOT NULL,
   `uaddressid` BIGINT NOT NULL,
   `username` VARCHAR(255) NOT NULL,
@@ -186,7 +184,6 @@ CREATE TABLE IF NOT EXISTS `QR9KltXLfl`.`useraddresses` (
   `city` VARCHAR(255) NOT NULL,
   `country` VARCHAR(255) NOT NULL,
   `region` VARCHAR(255) NOT NULL,
-  `state` VARCHAR(255) NOT NULL,
   `street` VARCHAR(255) NOT NULL,
   `zip` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`uaddressid`))

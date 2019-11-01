@@ -10,16 +10,12 @@ import java.util.Set;
 public class BankAccount {
 
     @Id
-    @Column(name = "accountnumber", updatable = false, nullable = false)
+    @Column(name = "senderaccountnumber", updatable = false, nullable = false)
     private String acnumber;
-    @Column(name = "countrycode", updatable = false, nullable = false)
-    private String country;
     @Column(name = "userid")
     private long userid;
     @Column(name = "balance", nullable = false)
     private BigDecimal balance;
-    @Column(name = "currency", nullable = false)
-    private String currency;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userid", insertable=false, updatable=false)
@@ -34,14 +30,6 @@ public class BankAccount {
 
     public void setAcnumber(String acnumber) {
         this.acnumber = acnumber;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public long getUserid() {
@@ -76,11 +64,4 @@ public class BankAccount {
         this.transaction = transaction;
     }
 
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
 }
