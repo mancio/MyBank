@@ -18,29 +18,29 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userid", nullable = false, updatable = false)
+    @Column(name = "userid", nullable = false, updatable = false, columnDefinition = "BIGINT(20)")
     private long id;
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(name = "username", nullable = false, unique = true, columnDefinition = "VARCHAR(30)")
     private String username;
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, columnDefinition = "VARCHAR(30)")
     private String pass;
-    @Column(name = "accessstatuscode", nullable = false)
+    @Column(name = "accessstatuscode", nullable = false, columnDefinition = "INT(10)")
     private int acstcode;
     @Column(name = "name", nullable = false, updatable = false) // visit the bank
     private String name;
-    @Column(name = "middlename", updatable = false)
+    @Column(name = "middlename", updatable = false, columnDefinition = "VARCHAR(30)")
     private String midname;
-    @Column(name = "lastname", nullable = false, updatable = false) // visit the bank
+    @Column(name = "lastname", nullable = false, updatable = false, columnDefinition = "VARCHAR(30)") // visit the bank
     private String surname;
-    @Column(name = "phoneprefix")
+    @Column(name = "phoneprefix", columnDefinition = "INT(10)")
     private String phprex;
-    @Column(name = "phone")
+    @Column(name = "phone", columnDefinition = "INT(20)")
     private String phone;
-    @Column(name = "mail", nullable = false, unique = true)
+    @Column(name = "mail", nullable = false, unique = true, columnDefinition = "VARCHAR(30)")
     private String mail;
-    @Column(name = "uaddressid", nullable = false, unique = true)
+    @Column(name = "uaddressid", nullable = false, unique = true, columnDefinition = "BIGINT(20)")
     private long uaddress;
-    @Column(name = "branchid", nullable = false, unique = true)
+    @Column(name = "branchid", nullable = false, unique = true, columnDefinition = "BIGINT(20)")
     private long branchid;
 
     @OneToMany(mappedBy = "user")

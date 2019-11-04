@@ -9,9 +9,9 @@ import java.util.Set;
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "bankid", updatable = false)
+    @Column(name = "bankid", updatable = false, columnDefinition = "BIGINT(20)")
     private long bankid;
-    @Column(name = "bankdetails")
+    @Column(name = "bankdetails", columnDefinition = "VARCHAR(120)")
     private String bkdet;
 
     @OneToMany(mappedBy = "bank")

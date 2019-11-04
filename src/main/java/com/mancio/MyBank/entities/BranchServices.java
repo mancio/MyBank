@@ -11,9 +11,9 @@ import java.util.Set;
 public class BranchServices {
 
     @Id
-    @Column(name = "branchtypecode", nullable = false)
+    @Column(name = "branchtypecode", nullable = false, columnDefinition = "VARCHAR(20)")
     private String brtpcode;
-    @Column(name = "servicelist")
+    @Column(name = "servicelist", columnDefinition = "VARCHAR(120)")
     private String slist;
     @OneToMany(mappedBy = "branchservices")
     private Set<Branches> branches;

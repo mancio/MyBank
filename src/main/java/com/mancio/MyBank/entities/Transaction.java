@@ -10,21 +10,21 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "transactionid", nullable = false, updatable = false)
+    @Column(name = "transactionid", nullable = false, updatable = false, columnDefinition = "BIGINT(20)")
     private long trid;
-    @Column(name = "senderaccountnumber", nullable = false, updatable = false)
+    @Column(name = "senderaccountnumber", nullable = false, updatable = false, columnDefinition = "VARCHAR(20)")
     private String sendacnum;
     @Column(name = "transferdate", nullable = false, updatable = false)
     private LocalDate date;
-    @Column(name = "receivername", nullable = false, updatable = false)
+    @Column(name = "receivername", nullable = false, updatable = false, columnDefinition = "VARCHAR(30)")
     private String recname;
-    @Column(name = "receiveraccountnumber", nullable = false, updatable = false)
+    @Column(name = "receiveraccountnumber", nullable = false, updatable = false, columnDefinition = "VARCHAR(20)")
     private String recacnum;
-    @Column(name = "transamount", nullable = false, updatable = false)
+    @Column(name = "transamount", nullable = false, updatable = false, columnDefinition = "DECIMAL(20,2)")
     private BigDecimal amount;
-    @Column(name = "transdescription", nullable = false, updatable = false)
+    @Column(name = "transdescription", nullable = false, updatable = false, columnDefinition = "VARCHAR(120)")
     private String desc;
-    @Column(name = "transstatus", nullable = false, updatable = false)
+    @Column(name = "transstatus", nullable = false, updatable = false, columnDefinition = "VARCHAR(120)")
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)

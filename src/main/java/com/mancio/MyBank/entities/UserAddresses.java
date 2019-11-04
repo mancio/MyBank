@@ -9,17 +9,17 @@ public class UserAddresses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "uaddressid", updatable = false, nullable = false)
+    @Column(name = "uaddressid", updatable = false, nullable = false, columnDefinition = "BIGINT(20)")
     private long uadid;
-    @Column(name = "street", nullable = false)
+    @Column(name = "street", nullable = false, columnDefinition = "VARCHAR(50)")
     private String street;
-    @Column(name = "city", nullable = false)
+    @Column(name = "city", nullable = false, columnDefinition = "VARCHAR(50)")
     private String city;
-    @Column(name = "zip", nullable = false)
+    @Column(name = "zip", nullable = false, columnDefinition = "VARCHAR(50)")
     private String zip;
-    @Column(name = "region", nullable = false)
+    @Column(name = "region", nullable = false, columnDefinition = "VARCHAR(50)")
     private String region;
-    @Column(name = "country", nullable = false)
+    @Column(name = "country", nullable = false, columnDefinition = "VARCHAR(50)")
     private String country;
 
     @OneToMany(mappedBy = "useraddresses")

@@ -9,17 +9,17 @@ public class BranchAddresses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "baddressid", updatable = false, nullable = false)
+    @Column(name = "baddressid", updatable = false, nullable = false, columnDefinition = "BIGINT(20)")
     private long bankadrid;
-    @Column(name = "street")
+    @Column(name = "street", columnDefinition = "VARCHAR(30)")
     private String street;
-    @Column(name = "city")
+    @Column(name = "city", columnDefinition = "VARCHAR(30)")
     private String city;
-    @Column(name = "zip")
+    @Column(name = "zip", columnDefinition = "VARCHAR(30)")
     private String zip;
-    @Column(name = "region", nullable = false)
+    @Column(name = "region", nullable = false, columnDefinition = "VARCHAR(30)")
     private String region;
-    @Column(name = "country", nullable = false)
+    @Column(name = "country", nullable = false, columnDefinition = "VARCHAR(30)")
     private String country;
 
 

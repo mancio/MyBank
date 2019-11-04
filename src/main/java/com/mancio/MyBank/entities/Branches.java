@@ -8,15 +8,15 @@ import java.util.Set;
 @Table(name = "branches")
 public class Branches {
     @Id
-    @Column(name = "branchid", nullable = false, updatable = false)
+    @Column(name = "branchid", nullable = false, updatable = false, columnDefinition = "BIGINT(20)")
     private long branchid;
-    @Column(name = "baddressid")
+    @Column(name = "baddressid", columnDefinition = "BIGINT(20)")
     private long baddressid;
-    @Column(name = "bankid")
+    @Column(name = "bankid", columnDefinition = "BIGINT(20)")
     private long bankid;
-    @Column(name = "branchtypecode")
+    @Column(name = "branchtypecode", columnDefinition = "VARCHAR(20)")
     private String brtpcode;
-    @Column(name = "branchdetails")
+    @Column(name = "branchdetails", columnDefinition = "VARCHAR(120)")
     private String branchdetails;
 
     @ManyToOne(fetch = FetchType.LAZY)

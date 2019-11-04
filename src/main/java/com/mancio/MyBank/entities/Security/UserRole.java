@@ -11,7 +11,7 @@ public class UserRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userroleid")
+    @Column(name = "userroleid", columnDefinition = "BIGINT(20)")
     private long userRoleId;
 
     public UserRole(User user, Role role) {

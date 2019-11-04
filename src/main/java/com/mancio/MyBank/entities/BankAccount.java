@@ -10,11 +10,11 @@ import java.util.Set;
 public class BankAccount {
 
     @Id
-    @Column(name = "senderaccountnumber", updatable = false, nullable = false)
+    @Column(name = "senderaccountnumber", updatable = false, nullable = false, columnDefinition = "VARCHAR(20)")
     private String acnumber;
-    @Column(name = "userid")
+    @Column(name = "userid", columnDefinition = "BIGINT(20)")
     private long userid;
-    @Column(name = "balance", nullable = false)
+    @Column(name = "balance", nullable = false, columnDefinition = "DECIMAL(20,2)")
     private BigDecimal balance;
 
     @ManyToOne(fetch = FetchType.LAZY)
