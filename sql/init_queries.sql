@@ -104,7 +104,7 @@ VALUES
 "",
 "figo@gmail.com",
 "Mario",
-"$2y$10$PHg/57rNRjJssZLDMnq55.NubW.7PSedPqm2d268.WISLyPgWBwI",
+"$2y$10$DwCKhjP6/D3eHCwOvkdy0ucQmWb9Wv4Y2aY.Oih4TrfnWLzTIuXe.",
 "339870555",
 "+77",
 "Berry",

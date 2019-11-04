@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import java.security.SecureRandom;
 
@@ -44,34 +43,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests().
-//                antMatchers("/**").
-        antMatchers(PUB_LINK).
-                permitAll().anyRequest().authenticated();
+                antMatchers(PUB_LINK).permitAll().anyRequest().authenticated().
+                antMatchers(ADMIN_LINK).hasRole("ADMIN").
+                antMatchers(USER_LINK).hasRole("USER");
 
-        http
-                .csrf().disable().cors().disable()
-                .formLogin().failureUrl("/index?error").defaultSuccessUrl("/userFront").loginPage("/index").permitAll()
-                .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/index?logout").deleteCookies("remember-me").permitAll()
-                .and()
-                .rememberMe();
+
     }
 
     // link that do not require authorization
     private static final String[] PUB_LINK = {
-            "/webjars/**",
-            "/css/**",
-            "/js/**",
-            "/images/**",
-            "/",
-            "/about/**",
-            "/contact/**",
-            "/error/**/*",
-            "/console/**",
-            "/signup",
-            "/login"
+        "/",
+        "/login"
     };
 
+    private static final String[] ADMIN_LINK = {
+        "/admin"
+    };
+
+    private static final String[] USER_LINK = {
+        "/user",
+        "/transfer",
+        "/mydata"
+    };
 
 
 
