@@ -1,13 +1,13 @@
 -- insert some testing values
 
-INSERT IGNORE INTO `QR9KltXLfl`.`bank`
+INSERT IGNORE INTO `ZCn3bDRv6O`.`bank`
 (`bankid`,
 `bankdetails`)
 VALUES
 (0,
 "Test Bank");
 
-INSERT IGNORE INTO `QR9KltXLfl`.`bankaccount`
+INSERT IGNORE INTO `ZCn3bDRv6O`.`bankaccount`
 (`senderaccountnumber`,
 `balance`,
 `userid`)
@@ -17,7 +17,7 @@ VALUES
 0);
 
 
-INSERT IGNORE INTO `QR9KltXLfl`.`branchaddresses`
+INSERT IGNORE INTO `ZCn3bDRv6O`.`branchaddresses`
 (`baddressid`,
 `city`,
 `country`,
@@ -33,7 +33,7 @@ VALUES
 "30888");
 
 
-INSERT IGNORE INTO `QR9KltXLfl`.`branches`
+INSERT IGNORE INTO `ZCn3bDRv6O`.`branches`
 (`branchid`,
 `baddressid`,
 `bankid`,
@@ -46,21 +46,21 @@ VALUES
 "Open every day from 9:00 to 20:00",
 111);
 
-INSERT IGNORE INTO `QR9KltXLfl`.`branchservices`
+INSERT IGNORE INTO `ZCn3bDRv6O`.`branchservices`
 (`branchtypecode`,
 `servicelist`)
 VALUES
 (111,
 "ATM, office loans");
 
-INSERT IGNORE INTO `QR9KltXLfl`.`role`
+INSERT IGNORE INTO `ZCn3bDRv6O`.`role`
 (`roleid`,
 `rolename`)
 VALUES
 (0,
 "USER");
 
-INSERT IGNORE INTO `QR9KltXLfl`.`userrole`
+INSERT IGNORE INTO `ZCn3bDRv6O`.`userrole`
 (`userroleid`,
 `roleid`,
 `userid`)
@@ -69,7 +69,7 @@ VALUES
 0,
 0);
 
-INSERT IGNORE INTO `QR9KltXLfl`.`useraddresses`
+INSERT IGNORE INTO `ZCn3bDRv6O`.`useraddresses`
 (`uaddressid`,
 `city`,
 `country`,
@@ -84,7 +84,7 @@ VALUES
 "St. Fireball 57",
 "45999");
 
-INSERT IGNORE INTO `QR9KltXLfl`.`user`
+INSERT IGNORE INTO `ZCn3bDRv6O`.`user`
 (`userid`,
 `accessstatuscode`,
 `branchid`,
@@ -111,7 +111,7 @@ VALUES
 0,
 "DickLong");
 
-INSERT IGNORE INTO `QR9KltXLfl`.`transaction`
+INSERT IGNORE INTO `ZCn3bDRv6O`.`transaction`
 (`transactionid`,
 `transamount`,
 `transferdate`,

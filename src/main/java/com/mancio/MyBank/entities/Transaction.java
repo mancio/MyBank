@@ -12,13 +12,13 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "transactionid", nullable = false, updatable = false, columnDefinition = "BIGINT(20)")
     private long trid;
-    @Column(name = "senderaccountnumber", nullable = false, updatable = false, columnDefinition = "VARCHAR(20)")
+    @Column(name = "senderaccountnumber", nullable = false, updatable = false, columnDefinition = "VARCHAR(50)")
     private String sendacnum;
     @Column(name = "transferdate", nullable = false, updatable = false)
     private LocalDate date;
     @Column(name = "receivername", nullable = false, updatable = false, columnDefinition = "VARCHAR(30)")
     private String recname;
-    @Column(name = "receiveraccountnumber", nullable = false, updatable = false, columnDefinition = "VARCHAR(20)")
+    @Column(name = "receiveraccountnumber", nullable = false, updatable = false, columnDefinition = "VARCHAR(50)")
     private String recacnum;
     @Column(name = "transamount", nullable = false, updatable = false, columnDefinition = "DECIMAL(20,2)")
     private BigDecimal amount;

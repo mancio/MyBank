@@ -42,10 +42,13 @@ another.
 Is on a free host at [https://remotemysql.com](https://remotemysql.com)
 
 ##### Test database
-* Mail: haced@netmail8.com
-* Username: QR9KltXLfl
-* Database name: QR9KltXLfl
-* Password: 1vHchtIkrQ
+* Mail: jabiro9195@upcmaill.com
+* Password mail: 1vHchtIkrQ
+
+DATABASE
+* Username: ZCn3bDRv6O
+* Database name: ZCn3bDRv6O
+* Password: SKkK9BcPIh
 * Server: remotemysql.com
 * Port: 3306
 

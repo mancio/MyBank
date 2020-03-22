@@ -22,7 +22,7 @@ public class User implements UserDetails {
     private long id;
     @Column(name = "username", nullable = false, unique = true, columnDefinition = "VARCHAR(30)")
     private String username;
-    @Column(name = "password", nullable = false, columnDefinition = "VARCHAR(30)")
+    @Column(name = "password", nullable = false, columnDefinition = "VARCHAR(100)")
     private String pass;
     @Column(name = "accessstatuscode", nullable = false, columnDefinition = "INT(10)")
     private int acstcode;
